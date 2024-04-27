@@ -1,0 +1,84 @@
+
+<section class="home-donation bg-blue">
+  <div class="home-donation__container grid">
+    <div class="grid__left">
+      <h2 class="home-donation__title title not-after">Doações</h2>
+      <h3 class="home-donation__subtitle subtitle">Como gastamos suas doações e para onde elas vão!</h3>
+      <h3 class="home-donation__description description">Descubra como suas doações estão fazendo a diferença! Neste espaço, compartilhamos informações sobre como os recursos doados são utilizados e para onde eles são direcionados.</h3>
+      <div class="legend-container"></div>
+    </div>
+    <div class="grid__right">
+      <div class="home-donation__chart-container">
+        <canvas id="anacDonations"></canvas>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('anacDonations');
+            let labelsDonations = ["Alimentação", "Hospedagem", "Oficinas", "Suporte social", "Outras despesas"];
+            let valuesDonations = [40, 35, 10, 10, 5];
+            const chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labelsDonations,
+                    datasets: [{
+                        label: 'Divisão em porcentagem',
+                        data: valuesDonations ,
+                        borderWidth: 1,
+                        backgroundColor: [
+                            '#BEF3C0',
+                            '#AC94F1',
+                            '#FFF0CA',
+                            '#F9CF64',
+                            '#F38FBF'
+                        ]
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            display: false,
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        
+            // Função para criar a legenda na div .legend-container
+            function createLegend() {
+                const legendContainer = document.querySelector('.legend-container');
+                const legendItems = chart.data.labels.map((label, index) => {
+                    const backgroundColor = chart.data.datasets[0].backgroundColor[index];
+                    const valuesLegends = chart.data.datasets[0].data[index];
+                    return `
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: ${backgroundColor}"></div>
+                            <span class="legend-label">${valuesLegends}% ${label}</span>
+                        </div>`;
+                });
+                legendContainer.innerHTML = legendItems.join('');
+            }
+        
+            // Atualiza a legenda quando o gráfico é inicializado
+            createLegend();
+        
+            // Adiciona evento de clique na legenda para ocultar/mostrar o conjunto de dados correspondente
+            document.querySelector('.legend-container').addEventListener('click', function (e) {
+                if (e.target.classList.contains('legend-label')) {
+                    const index = Array.from(e.target.parentNode.parentNode.children).indexOf(e.target.parentNode);
+                    const meta = chart.getDatasetMeta(0);
+                    meta.data[index].hidden = !meta.data[index].hidden;
+                    chart.update();
+                }
+            });
+        });
+        
+      </script>
+    </div>
+  </div>
+</section>

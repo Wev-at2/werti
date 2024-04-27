@@ -1,0 +1,97 @@
+<section class="home-main">
+  <div class="home-main__banner--container container">
+    <figure class="home-main__banner--figure figure" id="banner1">
+      <picture>
+        <source srcset="https://www.anacar.org.br/wp-content/uploads/2024/03/banner_home_main-M.webp" media="(max-width: 576px)" /><img src="https://www.anacar.org.br/wp-content/uploads/2024/03/banner_home_main-D.webp" alt="Banner 1" title="Banner 1" />
+      </picture>
+      <figcaption class="home-main__banner--content content">
+        <h2 class="home-main__banner--title title">60 anos de história</h2>
+        <h1 class="home-main__banner--subtitle subtitle subtitle--giant">Acolhimento institucional provisório a pessoas em trânsito durante tratamento hospitalar.</h1>
+        <div class="home-main__cta">
+          <ul class="home-main__cta--list">
+            <li class="home-main__cta--item"><a class="home-main__cta--link has-figure" href="https://www.facebook.com/casadocardiaco.anac.7">
+                <figure>
+                  <svg>
+                    <use xlink:href="./img/sprites/sprite.svg#facebook"></use>
+                  </svg>
+                </figure>
+              </a></li>
+            <li class="home-main__cta--item"><a class="home-main__cta--link has-figure" href="https://www.instagram.com/anac_casadocardiaco/">
+                <figure>
+                  <svg>
+                    <use xlink:href="./img/sprites/sprite.svg#instagram"></use>
+                  </svg>
+                </figure>
+              </a></li>
+            <li class="home-main__cta--item"><a class="home-main__cta--link has-figure" href="https://www.linkedin.com/company/anac-casa-do-cardíaco/about/">
+                <figure>
+                  <svg>
+                    <use xlink:href="./img/sprites/sprite.svg#linkedin"></use>
+                  </svg>
+                </figure>
+              </a></li>
+          </ul>
+        </div>
+      </figcaption>
+    </figure>
+    <figure class="home-main__banner--figure figure is-dark" id="banner2">
+      <picture>
+        <source srcset="https://www.anacar.org.br/wp-content/uploads/2024/03/banner_home_main2-M.webp" media="(max-width: 576px)" /><img src="https://www.anacar.org.br/wp-content/uploads/2024/03/banner_home_main2-D.webp" alt="Banner 2" title="Banner 2" />
+      </picture>
+      <figcaption class="home-main__banner--content content">
+        <h2 class="home-main__banner--title title"> Doações</h2>
+        <h1 class="home-main__banner--subtitle subtitle subtitle--giant">Juntos, construímos corações mais fortes!</h1><a class="home-main__cta--link btn" href="./doacao">Doar agora</a>
+      </figcaption>
+    </figure>
+    <?php
+          $mainHomeBanners = get_field('main_banners');
+          if (isset($mainHomeBanners)) { foreach ($mainHomeBanners as $mainHomeBanner) { ?>
+    <li>
+      <figure class="home-main__banner--figure figure" id="banner1">
+        <picture>
+          <source srcset="<?php echo $mainHomeBanner['main_banner_image_mobile']; ?>" media="(max-width: 576px)"><img src="<?php echo $mainHomeBanner['main_banner_image_desktop']; ?>" alt="Banner 1" title="Banner 1">
+        </picture>
+        <figcaption class="home-main__banner--content content">
+          <h2 class="home-main__banner--title title">
+            <?php echo $mainHomeBanner['main_banner_title']; ?>
+          </h2>
+          <h1 class="home-main__banner--subtitle subtitle subtitle--giant">
+            <?php echo $mainHomeBanner['main_banner_subtitle']; ?>
+          </h1>
+          <div class="home-main__cta">
+            <ul class="home-main__cta--list">
+              <li class="home-main__cta--item">
+                <a class="home-main__cta--link has-figure" href="https://www.facebook.com/casadocardiaco.anac.7">
+                  <figure>
+                    <svg>
+                      <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#facebook"></use>
+                    </svg>
+                  </figure>
+                </a>
+              </li>
+              <li class="home-main__cta--item">
+                <a class="home-main__cta--link has-figure" href="https://www.instagram.com/anac_casadocardiaco/">
+                  <figure>
+                    <svg>
+                      <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#instagram"></use>
+                    </svg>
+                  </figure>
+                </a>
+              </li>
+              <li class="home-main__cta--item">
+                <a class="home-main__cta--link has-figure" href="https://www.linkedin.com/company/anac-casa-do-cardíaco/about/">
+                  <figure>
+                    <svg>
+                      <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#linkedin"></use>
+                    </svg>
+                  </figure>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </figcaption>
+      </figure>
+    </li>
+    <?php } } ?>
+  </div>
+</section>

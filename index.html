@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ANAC - Associoação Nacional de Assistência ao Cardíaco</title>
+  <meta name="theme-color" content="#fff">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon">
+  <link rel="icon" sizes="16x16" href="img/favicons/favicon-16x16.png" type="image/png">
+  <link rel="icon" sizes="32x32" href="img/favicons/favicon-32x32.png" type="image/png">
+  <link rel="apple-touch-icon-precomposed" href="img/favicons/apple-touch-icon-precomposed.png">
+  <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="img/favicons/apple-touch-icon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
+  <link rel="apple-touch-icon" sizes="1024x1024" href="img/favicons/apple-touch-icon-1024x1024.png">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+  <header class="header sticky">
+    <div class="header__container">
+      <div class="header__logo"><a class="header__logo-link" href="./v2024">
+          <figure class="header__logo-img">
+            <svg>
+              <use xlink:href="./img/sprites/sprite.svg#anac_logo_v2"></use>
+            </svg>
+          </figure>
+        </a></div>
+      <button class="header__menu--btn btn js-toggle-nav" id="btn-mobile" type="button" aria-label="Abrir menu" aria-haspopup="true" aria-controls="menu" aria-expanded="false"><span class="header__menu-btn-icon" id="menu-burger_icon"></span></button>
+      <div class="header__links" id="header-nav">
+        <nav class="header__menu header__menu_mobile" aria-label="Menu Principal">
+          <ul class="header__menu-items">
+            <li class="header__menu-item dropdown" id="menuItem-sobrenos"><a class="header__menu-item-link header__menu-item-link--active nav-button" href="./v2024/sobre-nos" data-toggle="dropdown">Sobre nós<i class="icon-arrow"> </i></a>
+              <div class="header__menu-item-sub is-submenu dropdown-menu">
+                <ul class="header__menu-item-sublist">
+                  <li class="header__menu-item-subitem"><a href="./v2024/sobre-nos" target="_self"> Sobre nós</a></li>
+                  <li class="header__menu-item-subitem"><a href="https://anacar.org.br/wp-content/uploads/2019/06/estatuto.pdf" target="_blank"> Estatuto<i class="icon icon-download">
+                        <svg>
+                          <use xlink:href="./img/sprites/sprite.svg#icon_download"></use>
+                        </svg></i></a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="header__menu-item dropdown" id="menuItem-servicos"><a class="header__menu-item-link header__menu-item-link--active" href="./v2024/services" data-toggle="dropdown">Serviços<i class="icon-arrow"> </i></a>
+              <div class="header__menu-item-sub is-submenu dropdown-menu">
+                <ul class="header__menu-item-sublist">
+                  <li class="header__menu-item-subitem"><a href="./v2024/servicos" target="_self"> Serviços</a></li>
+                  <li class="header__menu-item-subitem"><a href="./v2024/estrutura" target="_self"> Estrutura</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="header__menu-item dropdown" id="menuItem-doacoes"><a class="header__menu-item-link header__menu-item-link--active" href="./v2024/doacoes" data-toggle="dropdown">Doações e colaboradores<i class="icon-arrow"> </i></a>
+              <div class="header__menu-item-sub is-submenu dropdown-menu">
+                <ul class="header__menu-item-sublist">
+                  <li class="header__menu-item-subitem"><a href="./v2024/doacoes" target="_self"> Doação</a></li>
+                  <li class="header__menu-item-subitem"><a href="./v2024/doacoes-nota-fiscal" target="_self"> Nota Fiscal</a></li>
+                  <li class="header__menu-item-subitem"><a href="./v2024/colaboradores" target="_self"> Colaboradores</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="header__menu-item" id="menuItem-faleconosco"><a class="header__menu-item-link header__menu-item-link--active" href="./v2024/fale-conosco">
+                Fale conosco</a></li>
+          </ul>
+        </nav>
+        <div class="header__cta"><a class="header__cta--btn btn btn_primary js-open-modal" href="./v2024/doacoes">
+            Doar agora</a></div>
+      </div>
+    </div>
+  </header>
+  <main class="anac-home" id="anac-home">
+    <section class="home-main">
+      <div class="home-main__banner--container container">
+        <figure class="home-main__banner--figure figure" id="banner1">
+          <picture>
+            <source srcset="https://www.anacar.org.br/wp-content/uploads/2024/03/banner_home_main-M.webp" media="(max-width: 576px)"><img src="https://www.anacar.org.br/wp-content/uploads/2024/03/banner_home_main-D.webp" alt="Banner 1" title="Banner 1">
+          </picture>
+          <figcaption class="home-main__banner--content content">
+            <h2 class="home-main__banner--title title">60 anos de história</h2>
+            <h1 class="home-main__banner--subtitle subtitle subtitle--giant">Acolhimento institucional provisório a pessoas em trânsito durante tratamento hospitalar.</h1>
+            <div class="home-main__cta">
+              <ul class="home-main__cta--list">
+                <li class="home-main__cta--item"><a class="home-main__cta--link has-figure" href="https://www.facebook.com/casadocardiaco.anac.7">
+                    <figure>
+                      <svg>
+                        <use xlink:href="./img/sprites/sprite.svg#facebook"></use>
+                      </svg>
+                    </figure>
+                  </a></li>
+                <li class="home-main__cta--item"><a class="home-main__cta--link has-figure" href="https://www.instagram.com/anac_casadocardiaco/">
+                    <figure>
+                      <svg>
+                        <use xlink:href="./img/sprites/sprite.svg#instagram"></use>
+                      </svg>
+                    </figure>
+                  </a></li>
+                <li class="home-main__cta--item"><a class="home-main__cta--link has-figure" href="https://www.linkedin.com/company/anac-casa-do-cardíaco/about/">
+                    <figure>
+                      <svg>
+                        <use xlink:href="./img/sprites/sprite.svg#linkedin"></use>
+                      </svg>
+                    </figure>
+                  </a></li>
+              </ul>
+            </div>
+          </figcaption>
+        </figure>
+        <figure class="home-main__banner--figure figure is-dark" id="banner2">
+          <picture>
+            <source srcset="https://www.anacar.org.br/wp-content/uploads/2024/03/banner_home_main2-M.webp" media="(max-width: 576px)"><img src="https://www.anacar.org.br/wp-content/uploads/2024/03/banner_home_main2-D.webp" alt="Banner 2" title="Banner 2">
+          </picture>
+          <figcaption class="home-main__banner--content content">
+            <h2 class="home-main__banner--title title"> Doações</h2>
+            <h1 class="home-main__banner--subtitle subtitle subtitle--giant">Juntos, construímos corações mais fortes!</h1><a class="home-main__cta--link btn" href="./doacao">Doar agora</a>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="home-about-us">
+      <div class="home-about-us__container container">
+        <figure class="home-about-us__image">
+          <source srcset="https://www.anacar.org.br/wp-content/uploads/2024/03/banner_home_sobreNos-M.webp" media="(max-width: 767px)"><img src="https://www.anacar.org.br/wp-content/uploads/2024/03/banner_home_sobreNos-D.webp" alt="Banner Sobre Nós" title="Banner Sobre Nós">
+        </figure>
+        <article class="home-about-us__content">
+          <h2 class="home-about-us__title title not-before">SOBRE NÓS </h2>
+          <h3 class="home-about-us__subtitle subtitle">Oferecemos um local para pessoas com necessidades especiais. </h3>
+          <p class="home-about-us__description description">ANAC, entidade beneficente de assistência social, sem fins lucrativos, fundada em 05 de setembro de 1963, que tem como sua principal finalidade, prestar serviço de acolhimento institucional provisório à pessoas com necessidades especiais que estejam em trânsito, fora da localidade de suas residências e sem condições de autossustento, durante o seu tratamento junto a rede hospitalar.</p><a class="home-about-us__link btn" href="./sobre-nos">Ver mais</a>
+        </article>
+      </div>
+    </section>
+    <section class="home-services">
+      <div class="home-services__container flex">
+        <h2 class="home-services__title title">O que fazemos</h2>
+        <h3 class="home-services__subtitle subtitle">Alguns serviços que prestamos aos nossos clientes.</h3>
+        <p class="home-services__description description">A ANAC (Casa do Cardíaco) oferece acomodações e suporte social para pacientes em tratamento médico, incluindo orientação sobre regulamentos da instituição, contato com a família e encaminhamento para recursos sociais.</p>
+        <ul class="home-services__container--grid">
+          <li class="home-services__item">
+            <figure class="home-services__icon">
+              <svg>
+                <use xlink:href="./img/sprites/sprite.svg#anac_icon-hospedagem"></use>
+              </svg>
+            </figure>
+            <h4 class="home-services__subtitle subtitle subtitle--big"> Hospedagem</h4>
+            <p class="home-services__description description"> Oferecemos acomodações para alojamento aos usuários que, por não possuírem recursos financeiros para permanecer em São Paulo durante o período de tratamento, utilizam as instalações de nossa instituição.</p>
+          </li>
+          <li class="home-services__item">
+            <figure class="home-services__icon">
+              <svg>
+                <use xlink:href="./img/sprites/sprite.svg#anac_icon-alimentacao"></use>
+              </svg>
+            </figure>
+            <h4 class="home-services__subtitle subtitle subtitle--big"> Alimentação</h4>
+            <p class="home-services__description description"> Fornecemos 4 refeições diárias (Café da manhã, almoço, café da tarde e jantar).</p>
+          </li>
+          <li class="home-services__item">
+            <figure class="home-services__icon">
+              <svg>
+                <use xlink:href="./img/sprites/sprite.svg#anac_icon-servicos_sociais"></use>
+              </svg>
+            </figure>
+            <h4 class="home-services__subtitle subtitle subtitle--big"> Serviço Social</h4>
+            <p class="home-services__description description"> O Serviço Social da ANAC – Casa do Cardíaco tem por finalidade, dar o suporte necessário ao usuário em questões sociais durante o período de permanência em tratamento.</p>
+          </li>
+          <li class="home-services__item" style="display: none!important">
+            <figure class="home-services__icon">
+              <svg>
+                <use xlink:href="./img/sprites/sprite.svg#anac_icon-transporte"></use>
+              </svg>
+            </figure>
+            <h4 class="services__subtitle subtitle subtitle--big"> Transporte</h4>
+            <p class="services__description description"> Contamos com uma Van para o transporte gratuito, para os Hospitais da Região, às 8 hs, 11 hs e 16 hs, ou fora destes horários, quando necessário.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="home-donation bg-blue">
+      <div class="home-donation__container grid">
+        <div class="grid__left">
+          <h2 class="home-donation__title title not-after">Doações</h2>
+          <h3 class="home-donation__subtitle subtitle">Como gastamos suas doações e para onde elas vão!</h3>
+          <h3 class="home-donation__description description">Descubra como suas doações estão fazendo a diferença! Neste espaço, compartilhamos informações sobre como os recursos doados são utilizados e para onde eles são direcionados.</h3>
+          <div class="legend-container"></div>
+        </div>
+        <div class="grid__right">
+          <div class="home-donation__chart-container">
+            <canvas id="anacDonations"></canvas>
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              const ctx = document.getElementById('anacDonations');
+              let labelsDonations = ["Alimentação", "Hospedagem", "Oficinas", "Suporte social", "Outras despesas"];
+              let valuesDonations = [40, 35, 10, 10, 5];
+              const chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                  labels: labelsDonations,
+                  datasets: [{
+                    label: 'Divisão em porcentagem',
+                    data: valuesDonations,
+                    borderWidth: 1,
+                    backgroundColor: [
+                      '#BEF3C0',
+                      '#AC94F1',
+                      '#FFF0CA',
+                      '#F9CF64',
+                      '#F38FBF'
+                    ]
+                  }]
+                },
+                options: {
+                  plugins: {
+                    legend: {
+                      display: false
+                    }
+                  },
+                  scales: {
+                    y: {
+                      display: false,
+                      beginAtZero: true
+                    }
+                  }
+                }
+              });
+
+              // Função para criar a legenda na div .legend-container
+              function createLegend() {
+                const legendContainer = document.querySelector('.legend-container');
+                const legendItems = chart.data.labels.map((label, index) => {
+                  const backgroundColor = chart.data.datasets[0].backgroundColor[index];
+                  const valuesLegends = chart.data.datasets[0].data[index];
+                  return `
+                              <div class="legend-item">
+                                  <div class="legend-color" style="background-color: ${backgroundColor}"></div>
+                                  <span class="legend-label">${valuesLegends}% ${label}</span>
+                              </div>`;
+                });
+                legendContainer.innerHTML = legendItems.join('');
+              }
+
+              // Atualiza a legenda quando o gráfico é inicializado
+              createLegend();
+
+              // Adiciona evento de clique na legenda para ocultar/mostrar o conjunto de dados correspondente
+              document.querySelector('.legend-container').addEventListener('click', function (e) {
+                if (e.target.classList.contains('legend-label')) {
+                  const index = Array.from(e.target.parentNode.parentNode.children).indexOf(e.target.parentNode);
+                  const meta = chart.getDatasetMeta(0);
+                  meta.data[index].hidden = !meta.data[index].hidden;
+                  chart.update();
+                }
+              });
+            });
+
+          </script>
+        </div>
+      </div>
+    </section>
+    <section class="home-employees">
+      <div class="home-employees__container">
+        <h2 class="home-employees__title title"> Colaboradores</h2>
+        <h3 class="home-employees__subtitle subtitle"> Empresas que confiam no nosso trabalho!</h3>
+        <div class="home-employees__list">
+          <div class="home-employees__item">
+            <figure><img src="http://www.anacar.org.br/wp-content/uploads/2024/03/anac_employees-hcor-x.webp" alt="Logotipo da Hcor" title="Hcor - Associação Benificente Síria">
+              <figcaption class="home-employees__figcap description" hidden> Hcor - Associação Benificente Síria.</figcaption>
+            </figure>
+          </div>
+          <div class="home-employees__item">
+            <figure><img src="http://www.anacar.org.br/wp-content/uploads/2024/03/anac_employees-dante_pazzanese-x.webp" alt="Logotipo da Dante Pazzanese" title="Dante Pazzanese">
+              <figcaption class="home-employees__figcap description" hidden> Dante Pazzanese.</figcaption>
+            </figure>
+          </div>
+          <div class="home-employees__item">
+            <figure><img src="http://www.anacar.org.br/wp-content/uploads/2024/03/anac_employees-novo_nordisk-x.webp" alt="Logotipo da Novo Nordisk Farmacêutica" title="Novo Nordisk Farmacêutica">
+              <figcaption class="home-employees__figcap description" hidden> Novo Nordisk Farmacêutica.</figcaption>
+            </figure>
+          </div>
+          <div class="home-employees__item">
+            <figure><img src="http://www.anacar.org.br/wp-content/uploads/2024/03/anac_employees-ceagesp_bca-x.webp" alt="Logotipo da BCA - Banco CEAGESP de Alimentos" title="BCA - Banco CEAGESP de Alimentos">
+              <figcaption class="home-employees__figcap description" hidden> BCA - Banco CEAGESP de Alimentos.</figcaption>
+            </figure>
+          </div>
+          <div class="home-employees__item">
+            <figure><img src="http://www.anacar.org.br/wp-content/uploads/2024/03/anac_employees-mob-x.webp" alt="Logotipo da MOB Roupas femininas" title="MOB Roupas femininas">
+              <figcaption class="home-employees__figcap description" hidden> MOB Roupas femininas.</figcaption>
+            </figure>
+          </div>
+          <div class="home-employees__item">
+            <figure><img src="http://www.anacar.org.br/wp-content/uploads/2024/03/anac_employees-bauducco-x.webp" alt="Logotipo da Bauducco" title="Bauducco">
+              <figcaption class="home-employees__figcap description" hidden> Bauducco.</figcaption>
+            </figure>
+          </div>
+          <div class="home-employees__item">
+            <figure><img src="http://www.anacar.org.br/wp-content/uploads/2024/03/anac_employees-casa_suica-x.webp" alt="Logotipo da Casa Suiça" title="Casa Suiça">
+              <figcaption class="home-employees__figcap description" hidden> Casa Suiça.</figcaption>
+            </figure>
+          </div>
+          <div class="home-employees__item">
+            <figure><img src="http://www.anacar.org.br/wp-content/uploads/2024/03/anac_employees-bella_mariana_padaria-x.webp" alt="Logotipo da Bella Mariana Padaria" title="Bella Mariana Padaria">
+              <figcaption class="home-employees__figcap description" hidden> Bella Mariana Padaria.</figcaption>
+            </figure>
+          </div>
+          <div class="home-employees__item">
+            <figure><img src="http://www.anacar.org.br/wp-content/uploads/2024/03/anac_employees-extra_supermercado-x.webp" alt="Logotipo da Extra Supermercados" title="Extra Supermercados">
+              <figcaption class="home-employees__figcap description" hidden> Extra Supermercados.</figcaption>
+            </figure>
+          </div>
+          <div class="home-employees__item">
+            <figure><img src="http://www.anacar.org.br/wp-content/uploads/2024/03/anac_employees-pao_de_acucar_supermercado-x.webp" alt="Logotipo da Pão de Açúcar Supermercados" title="Pão de Açúcar Supermercados">
+              <figcaption class="home-employees__figcap description" hidden> Pão de Açúcar Supermercados.</figcaption>
+            </figure>
+          </div>
+          <div class="home-employees__item">
+            <figure><img src="http://www.anacar.org.br/wp-content/uploads/2024/03/anac_employees-lar_espirita_chico_xavier-x.webp" alt="Logotipo da Lar Espírita Chico Xavier" title="Lar Espírita Chico Xavier">
+              <figcaption class="home-employees__figcap description" hidden> Lar Espírita Chico Xavier.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="home-instagram bg-blue">
+      <div class="home-instagram__container">
+        <h2 class="home-instagram__title title">Instagram</h2>
+        <h3 class="home-instagram__subtitle subtitle">Acompanhe nosso trabalho pelo Instagram também!</h3>
+        <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+        <div class="elfsight-app-06b3c6ba-2a2d-4618-b3e3-96cf6597205b" data-elfsight-app-lazy></div>
+      </div>
+    </section>
+  </main>
+  <section class="cta" id="cta">
+    <div class="cta__container">
+      <h3 class="cta__subtitle subtitle"> Você pode contribuir para tornar que a nossa casa de apoio se torne um lugar ainda melhor para pessoas com necessidades especiais!</h3><a class="cta__link btn" href="./v2024/doacoes"> Doe agora</a>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__container-flex border-bottom">
+        <div class="footer__logo"><a class="footer__logo--link" href="./">
+            <figure class="footer__logo--img img">
+              <svg>
+                <use xlink:href="./img/sprites/sprite.svg#anac_logo_v1_white" alt="Logo da ANAC" title="ANAC - Associação Nacional de Assitência ao Cardíaco"></use>
+              </svg>
+              <figcaption class="footer__logo--figcap" hidden>ANAC - Associação Nacional de Assitência ao Cardíaco</figcaption>
+            </figure>
+          </a></div>
+        <div class="footer__links">
+          <h4 class="footer__links--title footer__title">Quem somos</h4>
+          <ul class="footer__links--list footer__list">
+            <li class="footer__links-item"><a class="footer__links--link footer__link" href="./v2024/sobre-nos">Sobre Nós</a></li>
+            <li class="footer__links-item"><a class="footer__links--link footer__link" href="https://anacar.org.br/wp-content/uploads/2019/06/estatuto.pdf">Estatuto</a></li>
+            <li class="footer__links-item"><a class="footer__links--link footer__link" href="./v2024/servicos">Serviços</a></li>
+            <li class="footer__links-item"><a class="footer__links--link footer__link" href="./v2024/estrutura">Estrutura</a></li>
+            <li class="footer__links-item"><a class="footer__links--link footer__link" href="./v2024/colaboradores">Colaboradores</a></li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__links--title footer__title">Colaborar</h4>
+          <ul class="footer__links--list footer__list">
+            <li class="footer__links-item"><a class="footer__links--link footer__link" href="./v2024/doacoes">Doações Financeiras</a></li>
+            <li class="footer__links-item"><a class="footer__links--link footer__link" href="./v2024/doacoes-nota-fiscal">Nota Fiscal Paulista</a></li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__links--title footer__title">Contato</h4>
+          <ul class="footer__links--list footer__list">
+            <li class="footer__links-item"><a class="footer__links--link footer__link" href="./v2024/fale-conosco">Fale Conosco</a></li>
+            <li class="footer__links-item"><a class="footer__links--link footer__link" href="tel+551155790609">+55 (11) 5579-0609</a></li>
+            <li class="footer__links-item"><a class="footer__links--link footer__link" href="tel+551150822437">+55 (11) 5082-2437</a></li>
+            <li class="footer__links-item">
+              <p class="footer__links--text footer__text"> Rua Caravavelas, 527 - Vila Mariana - São Paulo/SP - 04012-060</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__container-flex">
+        <div class="footer__rightReserved">
+          <p class="footer__rightReserved--text footer__text"> &copy; 2024 -<a class="footer__rightReserved--link footer__link" href="./v2024"> &nbsp;Associação Nacional de Assistência ao Cardíaco - ANAC</a></p>
+        </div>
+        <div class="footer__socials">
+          <ul class="footer__socials--list footer__list">
+            <li class="footer__socials--item"><a class="footer__socials--link footer__link" href="https://www.facebook.com/casadocardiaco.anac.7">
+                <figure>
+                  <svg>
+                    <use xlink:href="./img/sprites/sprite.svg#facebook"></use>
+                  </svg>
+                </figure>
+              </a></li>
+            <li class="footer__socials--item"><a class="footer__socials--link footer__link" href="https://www.instagram.com/anac_casadocardiaco/">
+                <figure>
+                  <svg>
+                    <use xlink:href="./img/sprites/sprite.svg#instagram"></use>
+                  </svg>
+                </figure>
+              </a></li>
+            <li class="footer__socials--item"><a class="footer__socials--link footer__link" href="https://www.linkedin.com/company/anac-casa-do-cardíaco/about/">
+                <figure>
+                  <svg>
+                    <use xlink:href="./img/sprites/sprite.svg#linkedin"></use>
+                  </svg>
+                </figure>
+              </a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__container-flex flex-end">
+        <div class="footer__development">
+          <p class="footer__development--text footer__text">Desenvolvido por:</p><a class="footer__development--link" href="https://wevertoncosta.com.br" title="Weverton Costa | Desevolvimento Web" target="_blank">
+            <figure class="footer__development--img">
+              <svg>
+                <use xlink:href="./img/sprites/sprite.svg#wc_logo_white"></use>
+              </svg>
+              <figcaption class="footer__development--figcap" hidden> Weverton Costa | Desevolvimento Web</figcaption>
+            </figure>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/vendor.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
