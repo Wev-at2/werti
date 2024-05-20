@@ -7,11 +7,11 @@
   while (have_posts()):
     the_post(); ?>
 
-    <main class="anac-about" id="anac-about">
+    <main class="anac-main anac-about" id="anac-about">
 
       <section class="about-main">
         <div class="about-main__container container">
-          <div class="about-main__content grid__container">
+          <div class="about-main__content main-content grid__container">
             <div class="grid__item--top">
               <h2 class="about-main__title title title--main">
                 <!-- <?php the_title(); ?> -->
@@ -35,7 +35,7 @@
             if (!empty($mainPageBanners)) {
               echo '<figure class="about-main__banners main-banners grid__container">';
               foreach ($mainPageBanners as $key => $mainPageBannersItem) { ?>
-                <picture id="main-banner<?php echo $key + 1; ?>">
+                <picture id="about-main-banner<?php echo $key + 1; ?>">
                   <source srcset="<?php echo $mainPageBannersItem['main_banner_page_mobile']; ?>" media="(max-width: 767px)">
                   <img src="<?php echo $mainPageBannersItem['main_banner_page_desktop']; ?>" alt="Banner <?php echo $key + 1; ?>" title="Banner <?php echo $key + 1; ?>">
                 </picture>
@@ -118,78 +118,44 @@
                 <option value="2023">2023</option>
                 <option value="2022">2022</option>
               </select>
-              <table class="about-numbers__table" id="table2023" border="1">
+              <table class="about-numbers__table" id="table-lastYear" border="1">
                 <caption class="about-numbers__subtitle subtitle subtitle--big">
                   <?php the_field('about_numbers_list_subtitle_first'); ?>
                 </caption>
                 <tbody>
                   <?php
-                  $aboutSectionNumbers = get_field('about_numbers_list');
-                  if (isset($aboutSectionNumbers)) {
-                    foreach ($aboutSectionNumbers as $aboutSectionNumbersItem) { ?>
+                  $aboutNumbersTableLast = get_field('about_numbers_list_lastyear');
+                  if (isset($aboutNumbersTableLast)) {
+                    foreach ($aboutNumbersTableLast as $aboutNumbersTableLastItem) { ?>
                       <tr class="about-numbers__table--row">
                         <td class="about-numbers__table--data description description--bold">
-                          <?php echo $aboutSectionNumbersItem['about_numbers_list_qty']; ?>
+                          <?php echo $aboutNumbersTableLastItem['about_numbers_item_qty_lastyear']; ?>
                         </td>
                         <td class="about-numbers__table--data description">
-                          <?php echo $aboutSectionNumbersItem['about_numbers_list_description']; ?>
+                          <?php echo $aboutNumbersTableLastItem['about_numbers_item_description_lastyear']; ?>
                         </td>
                       </tr>
                     <?php }
                   } ?>
-                  <!-- <tr class="about-numbers__table--row">
-                    <td class="about-numbers__table--data description description--bold">579</td>
-                    <td class="about-numbers__table--data description">Atendimentos na ANAC – Casa de Acolhimento</td>
-                  </tr>
-                  <tr class="about-numbers__table--row">
-                    <td class="about-numbers__table--data description description--bold">301</td>
-                    <td class="about-numbers__table--data description">Pacientes atendidos na ANAC – Casa de Acolhimento</td>
-                  </tr>
-                  <tr class="about-numbers__table--row">
-                    <td class="about-numbers__table--data description description--bold">296</td>
-                    <td class="about-numbers__table--data description">Acompanhantes de Pacientes Internado/acompanhantes recebidos na ANAC – Casa de Acolhimento</td>
-                  </tr>
-                  <tr class="about-numbers__table--row">
-                    <td class="about-numbers__table--data description description--bold">10.334</td>
-                    <td class="about-numbers__table--data description">Refeições oferecidas na ANAC – Casa de Acolhimento</td>
-                  </tr>
-                  <tr class="about-numbers__table--row">
-                    <td class="about-numbers__table--data description description--bold">3.204</td>
-                    <td class="about-numbers__table--data description">Pernoites na ANAC – Casa de Acolhimento</td>
-                  </tr>
-                  <tr class="about-numbers__table--row">
-                    <td class="about-numbers__table--data description description--bold">15</td>
-                    <td class="about-numbers__table--data description">Dias – tempo médio – de permanência dos Pacientes na ANAC – Casa de Acolhimento</td>
-                  </tr> -->
                 </tbody>
               </table>
-              <table class="about-numbers__table" id="table2022" border="1" style="display:none;">
+              <table class="about-numbers__table" id="table-lastYear-before" border="1" style="display:none;">
                 <caption class="about-numbers__subtitle subtitle subtitle--big">Resumo de acolhimento 2022</caption>
                 <tbody>
-                  <tr class="about-numbers__table--row">
-                    <td class="about-numbers__table--data description description--bold">497</td>
-                    <td class="about-numbers__table--data description">Atendimentos na ANAC – Casa de Acolhimento</td>
-                  </tr>
-                  <tr class="about-numbers__table--row">
-                    <td class="about-numbers__table--data description description--bold">267</td>
-                    <td class="about-numbers__table--data description">Pacientes atendidos na ANAC – Casa de Acolhimento</td>
-                  </tr>
-                  <tr class="about-numbers__table--row">
-                    <td class="about-numbers__table--data description description--bold">230</td>
-                    <td class="about-numbers__table--data description">Acompanhantes de Pacientes Internado/acompanhantes recebidos na ANAC – Casa de Acolhimento</td>
-                  </tr>
-                  <tr class="about-numbers__table--row">
-                    <td class="about-numbers__table--data description description--bold">12.172</td>
-                    <td class="about-numbers__table--data description">Refeições oferecidas na ANAC – Casa de Acolhimento</td>
-                  </tr>
-                  <tr class="about-numbers__table--row">
-                    <td class="about-numbers__table--data description description--bold">3.230</td>
-                    <td class="about-numbers__table--data description">Pernoites na ANAC – Casa de Acolhimento</td>
-                  </tr>
-                  <tr class="about-numbers__table--row">
-                    <td class="about-numbers__table--data description description--bold">16</td>
-                    <td class="about-numbers__table--data description">Dias – tempo médio – de permanência dos Pacientes na ANAC – Casa de Acolhimento</td>
-                  </tr>
+                  <?php
+                  $aboutNumbersTableLastBefore = get_field('about_numbers_list_lastyear_before');
+                  if (isset($aboutNumbersTableLastBefore)) {
+                    foreach ($aboutNumbersTableLastBefore as $aboutNumbersTableLastBeforeItem) { ?>
+                      <tr class="about-numbers__table--row">
+                        <td class="about-numbers__table--data description description--bold">
+                          <?php echo $aboutNumbersTableLastBeforeItem['about_numbers_item_qty_lastyear_before']; ?>
+                        </td>
+                        <td class="about-numbers__table--data description">
+                          <?php echo $aboutNumbersTableLastBeforeItem['about_numbers_item_description_lastyear_before']; ?>
+                        </td>
+                      </tr>
+                    <?php }
+                  } ?>
                 </tbody>
               </table>
             </div>
@@ -213,8 +179,8 @@
                   <tbody>
                     <tr class="about-numbers__table--row">
                       <td class="about-numbers__table--data description">Número de beneficiados</td>
-                      <td class="about-numbers__table--data description">880</td>
-                      <td class="about-numbers__table--data description">764</td>
+                      <td class="about-numbers__table--data description">597</td>
+                      <td class="about-numbers__table--data description">496</td>
                       <td class="about-numbers__table--data description">500</td>
                       <td class="about-numbers__table--data description">293</td>
                       <td class="about-numbers__table--data description">529</td>
@@ -229,7 +195,7 @@
                       <td class="about-numbers__table--data description">3.204</td>
                       <td class="about-numbers__table--data description">3.230</td>
                       <td class="about-numbers__table--data description">4.051</td>
-                      <td class="about-numbers__table--data description">2.425</td>
+                      <td class="about-numbers__table--data description">2.426</td>
                       <td class="about-numbers__table--data description">4.553</td>
                       <td class="about-numbers__table--data description">1.952</td>
                       <td class="about-numbers__table--data description">1.397</td>
@@ -256,9 +222,15 @@
               </div>
               <div class="table-resume">
                 <div class="table-resume__content">
-                  <p class="table-resume__description description"><span class="about-numbers__table--data description description--bold">8.977 </span>Beneficiados</p>
-                  <p class="table-resume__description description"><span class="about-numbers__table--data description description--bold">27.734 </span>Diárias</p>
-                  <p class="table-resume__description description"><span class="about-numbers__table--data description description--bold">102.050 </span>Refeições servidas</p>
+                  <p class="table-resume__description description">
+                    <span class="about-numbers__table--data description description--bold">5.989 </span>Beneficiados
+                  </p>
+                  <p class="table-resume__description description">
+                    <span class="about-numbers__table--data description description--bold">27.735 </span>Diárias
+                  </p>
+                  <p class="table-resume__description description">
+                    <span class="about-numbers__table--data description description--bold">102.050 </span>Refeições servidas
+                  </p>
                 </div>
               </div>
             </div>
@@ -421,11 +393,7 @@
 
     </main>
 
-    <section class="cta" id="cta">
-      <div class="cta__container">
-        <h3 class="cta__subtitle subtitle"> Você pode contribuir para tornar que a nossa casa de apoio se torne um lugar ainda melhor para pessoas com necessidades especiais!</h3><a class="cta__link btn" href="./v2024/doacoes"> Doe agora</a>
-      </div>
-    </section>
+    <?php include ('cta-section.php'); ?>
 
   <?php endwhile; else: ?>
   <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>

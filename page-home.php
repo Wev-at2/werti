@@ -7,7 +7,7 @@
   while (have_posts()):
     the_post(); ?>
 
-    <main class="anac-home" id="anac-home">
+    <main class="anac-main anac-home" id="anac-home">
 
       <section class="home-main">
         <div class="home-main__banner--container container">
@@ -243,10 +243,10 @@
                       const backgroundColor = chart.data.datasets[0].backgroundColor[index];
                       const valuesLegends = chart.data.datasets[0].data[index];
                       return `
-                                                                                                                                                                                                                                                                                                                                                                                                                                  <div class="legend-item">
-                                                                                                                                                                                                                                                                                                                                                                                                                                      <div class="legend-color" style="background-color: ${backgroundColor}"></div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                      <span class="legend-label">${valuesLegends}% ${label}</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>`;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <div class="legend-item">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div class="legend-color" style="background-color: ${backgroundColor}"></div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <span class="legend-label">${valuesLegends}% ${label}</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>`;
                     });
                     legendContainer.innerHTML = legendItems.join('');
                   }
@@ -314,11 +314,8 @@
       </section>
 
     </main>
-    <section class="cta" id="cta">
-      <div class="cta__container">
-        <h3 class="cta__subtitle subtitle"> Você pode contribuir para tornar que a nossa casa de apoio se torne um lugar ainda melhor para pessoas com necessidades especiais!</h3><a class="cta__link btn" href="<?php echo get_stylesheet_directory_uri(); ?>/v2024/doacoes"> Doe agora</a>
-      </div>
-    </section>
+
+    <?php include ('cta-section.php'); ?>
 
   <?php endwhile; else: ?>
   <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>

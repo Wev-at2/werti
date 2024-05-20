@@ -14,7 +14,10 @@ remove_action('admin_print_styles', 'print_emoji_styles');
 // Habilitar Menus
 add_theme_support('menus');
 
-// functions.php
+// Obtém o valor de um campo personalizado de um post no WordPress.
+// @param string $key A chave do campo personalizado.
+// @param int $page_id (Opcional) O ID da página. Se não fornecido, será usado o ID do post atual.
+// @return mixed O valor do campo personalizado, ou null se não encontrado.
 function get_field($key, $page_id = 0)
 {
   $id = $page_id !== 0 ? $page_id : get_the_ID();
@@ -27,15 +30,13 @@ function the_field($key, $page_id = 0)
 }
 
 add_action('cmb2_admin_init', 'cmb2_fields_pages');
-
-// array('item1', 'item2') === ['item1', 'item2']
 function cmb2_fields_pages()
 {
   // Adiciona um bloco
   $cmb = new_cmb2_box([
-    'id' => 'main_content_box', // id deve ser único
+    'id' => 'main_content_box',
     'title' => 'Conteúdo principal',
-    'object_types' => ['page'], // tipo de post
+    'object_types' => ['page'],
     'show_on' => [
       'key' => 'page-template',
       'value' => [
@@ -47,7 +48,7 @@ function cmb2_fields_pages()
         'page-colaboradores.php',
         'page-fale-conosco.php',
       ],
-    ], // modelo de página
+    ],
   ]);
 
   $cmb->add_field([
@@ -124,17 +125,16 @@ function cmb2_fields_pages()
 }
 
 add_action('cmb2_admin_init', 'cmb2_fields_home');
-
 function cmb2_fields_home()
 {
   $cmb = new_cmb2_box([
-    'id' => 'home_box', // id deve ser único
+    'id' => 'home_box',
     'title' => 'Pagina Inicial',
-    'object_types' => ['page'], // tipo de post
+    'object_types' => ['page'],
     'show_on' => [
       'key' => 'page-template',
       'value' => 'page-home.php',
-    ], // modelo de página
+    ],
   ]);
 
   $mainHomeBanners = $cmb->add_field([
@@ -205,6 +205,7 @@ function cmb2_fields_home()
   $cmb->add_group_field($mainHomeBanners, [
     'name' => 'Cor do Título do Banner',
     'id' => 'main_banner_fontcolor_title',
+    'desc' => 'Cores padrões: Vermelho: #ed1a3b / Azul: #333280',
     'type' => 'colorpicker',
     'default' => '#ed1a3b',
     'options' => array(
@@ -214,6 +215,7 @@ function cmb2_fields_home()
   $cmb->add_group_field($mainHomeBanners, [
     'name' => 'Cor do Subtítulo do Banner',
     'id' => 'main_banner_fontcolor_subtitle',
+    'desc' => 'Cores padrões: Vermelho: #ed1a3b / Azul: #333280',
     'type' => 'colorpicker',
     'default' => '#333280',
     'options' => array(
@@ -465,7 +467,6 @@ function cmb2_fields_home()
 }
 
 add_action('cmb2_admin_init', 'cmb2_fields_sobre_nos');
-
 function cmb2_fields_sobre_nos()
 {
   $cmb = new_cmb2_box([
@@ -551,9 +552,9 @@ function cmb2_fields_sobre_nos()
     'type' => 'textarea_small',
   ]);
 
-  $aboutSectionNumbers = $cmb->add_field([
+  $aboutNumbersTableLast = $cmb->add_field([
     'name' => 'Resumo de acolhimento 2023 (lista)',
-    'id' => 'about_numbers_list',
+    'id' => 'about_numbers_list_lastyear',
     'type' => 'group',
     'options' => [
       'group_title' => 'Item {#}',
@@ -563,15 +564,39 @@ function cmb2_fields_sobre_nos()
       'sortable' => true,
     ],
   ]);
-  $cmb->add_group_field($aboutSectionNumbers, [
+  $cmb->add_group_field($aboutNumbersTableLast, [
     'name' => 'Quantidade',
-    'id' => 'about_numbers_list_qty',
+    'id' => 'about_numbers_item_qty_lastyear',
     'type' => 'text_small',
     'desc' => 'Ex:  15.000',
   ]);
-  $cmb->add_group_field($aboutSectionNumbers, [
+  $cmb->add_group_field($aboutNumbersTableLast, [
     'name' => 'Descrição',
-    'id' => 'about_numbers_list_description',
+    'id' => 'about_numbers_item_description_lastyear',
+    'type' => 'textarea_small',
+  ]);
+
+  $aboutNumbersTableLastBefore = $cmb->add_field([
+    'name' => 'Resumo de acolhimento 2022 (lista)',
+    'id' => 'about_numbers_list_lastyear_before',
+    'type' => 'group',
+    'options' => [
+      'group_title' => 'Item {#}',
+      'add_button' => 'Adicionar',
+      'remove_button' => 'Remover',
+      'remove_confirm' => esc_html__('Tem certeza que deseja excluir? Isso pode resultar em perdas irreversíveis.'),
+      'sortable' => true,
+    ],
+  ]);
+  $cmb->add_group_field($aboutNumbersTableLastBefore, [
+    'name' => 'Quantidade',
+    'id' => 'about_numbers_item_qty_lastyear_before',
+    'type' => 'text_small',
+    'desc' => 'Ex:  15.000',
+  ]);
+  $cmb->add_group_field($aboutNumbersTableLastBefore, [
+    'name' => 'Descrição',
+    'id' => 'about_numbers_item_description_lastyear_before',
     'type' => 'textarea_small',
   ]);
 
@@ -786,39 +811,590 @@ function cmb2_fields_sobre_nos()
 }
 
 add_action('cmb2_admin_init', 'cmb2_fields_servicos');
-
 function cmb2_fields_servicos()
 {
+  $cmb = new_cmb2_box([
+    'id' => 'servicos_box',
+    'title' => 'Seções da página',
+    'object_types' => ['page'],
+    'show_on' => [
+      'key' => 'page-template',
+      'value' => 'page-servicos.php',
+    ],
+  ]);
+  $cmb->add_field([
+    'name' => 'Serviço 1: Título',
+    'id' => 'services_item_title_first',
+    'type' => 'text',
+  ]);
+  $cmb->add_field([
+    'name' => 'Serviço 1: Descrição',
+    'id' => 'services_item_description_first',
+    'type' => 'textarea',
+  ]);
+  $cmb->add_field([
+    'name' => 'Serviço 2: Título',
+    'id' => 'services_item_title_second',
+    'type' => 'text',
+  ]);
+  $cmb->add_field([
+    'name' => 'Serviço 2: Descrição',
+    'id' => 'services_item_description_second',
+    'type' => 'textarea',
+  ]);
+  $cmb->add_field([
+    'name' => 'Serviço 3: Título',
+    'id' => 'services_item_title_third',
+    'type' => 'text',
+  ]);
+  $cmb->add_field([
+    'name' => 'Serviço 3: Descrição',
+    'id' => 'services_item_description_third',
+    'type' => 'textarea',
+  ]);
+  $cmb->add_field([
+    'name' => 'Serviço 4: Título',
+    'id' => 'services_item_title_fourth',
+    'type' => 'text',
+  ]);
+  $cmb->add_field([
+    'name' => 'Serviço 4: Descrição',
+    'id' => 'services_item_description_fourth',
+    'type' => 'textarea',
+  ]);
+
+  $cmb->add_field([
+    'name' => 'Seção Bazar: Título',
+    'id' => 'bazar_title',
+    'type' => 'text',
+  ]);
+  $cmb->add_field([
+    'name' => 'Seção Bazar: Subtítulo',
+    'id' => 'bazar_subtitle',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Bazar: URL do Endereço',
+    'id' => 'bazar_description_address_link',
+    'type' => 'text_url',
+  ]);
+  $cmb->add_field([
+    'name' => 'Bazar: Texto do endereço',
+    'id' => 'bazar_description_address_text',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Bazar: Horários de funcionamento',
+    'id' => 'bazar_description_schedules',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Bazar: URL do telefone',
+    'id' => 'bazar_description_phone_link',
+    'type' => 'text_url',
+  ]);
+  $cmb->add_field([
+    'name' => 'Bazar: Texto do telefone',
+    'id' => 'bazar_description_phone_text',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Bazar: Mapa  (iframe)',
+    'desc' => 'Inserir o iframe daqui:',
+    'id' => 'bazar_description_maps',
+    'type' => 'textarea_code',
+  ]);
+
+  $servicosBazarImages = $cmb->add_field([
+    'name' => 'Imagens do bazar',
+    'id' => 'servicos_bazar_image_list',
+    'type' => 'group',
+    'repeatable' => true,
+    'options' => [
+      'group_title' => 'Imagem do bazar {#}',
+      'add_button' => 'Adicionar',
+      'remove_button' => 'Remover',
+      'remove_confirm' => esc_html__('Tem certeza que deseja excluir? Isso pode resultar em perdas irreversíveis.'),
+      'sortable' => true,
+    ],
+  ]);
+  $cmb->add_group_field($servicosBazarImages, [
+    'name' => 'Imagem do bazar',
+    'desc' => 'Faça upload de uma imagem ou insira um URL. *Imagem 4x3 horizontal',
+    'id' => 'servicos_bazar_item_file',
+    'type' => 'file',
+    'options' => array(
+      'url' => false,
+    ),
+    'text' => array(
+      'add_upload_file_text' => 'Add File'
+    ),
+    'query_args' => array(
+      'type' => array(
+        'image/gif',
+        'image/jpeg',
+        'image/jpg',
+        'image/png',
+        'image/webp',
+      ),
+    ),
+  ]);
 }
 
 add_action('cmb2_admin_init', 'estrutura');
-
 function estrutura()
 {
+  $cmb = new_cmb2_box([
+    'id' => 'estrutura_box',
+    'title' => 'Seções da página',
+    'object_types' => ['page'],
+    'show_on' => [
+      'key' => 'page-template',
+      'value' => 'page-estrutura.php',
+    ],
+  ]);
+
+  $cmb->add_field([
+    'name' => 'Seção Casa de apoio: Título',
+    'id' => 'structure_supportHouse_title',
+    'type' => 'text',
+  ]);
+  $cmb->add_field([
+    'name' => 'Seção Casa de apoio: Subtítulo',
+    'id' => 'structure_supportHouse_subtitle',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Casa de apoio: URL do Endereço',
+    'id' => 'structure_supportHouse_description_address_link',
+    'type' => 'text_url',
+  ]);
+  $cmb->add_field([
+    'name' => 'Casa de apoio: Texto do endereço',
+    'id' => 'structure_supportHouse_description_address_text',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Casa de apoio: URL do telefone',
+    'id' => 'structure_supportHouse_description_phone_link',
+    'type' => 'text_url',
+  ]);
+  $cmb->add_field([
+    'name' => 'Casa de apoio: Texto do telefone',
+    'id' => 'structure_supportHouse_description_phone_text',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Casa de apoio: Mapa  (iframe)',
+    'desc' => 'Inserir o iframe daqui:',
+    'id' => 'structure_supportHouse_description_maps',
+    'type' => 'textarea_code',
+  ]);
+
+  $estructureSupportHouseImages = $cmb->add_field([
+    'name' => 'Imagens do bazar',
+    'id' => 'structure_supportHouse_image_list',
+    'type' => 'group',
+    'repeatable' => true,
+    'options' => [
+      'group_title' => 'Imagem do bazar {#}',
+      'add_button' => 'Adicionar',
+      'remove_button' => 'Remover',
+      'remove_confirm' => esc_html__('Tem certeza que deseja excluir? Isso pode resultar em perdas irreversíveis.'),
+      'sortable' => true,
+    ],
+  ]);
+  $cmb->add_group_field($estructureSupportHouseImages, [
+    'name' => 'Imagem do bazar',
+    'desc' => 'Faça upload de uma imagem ou insira um URL. *Imagem quadrada 1x1',
+    'id' => 'structure_supportHouse_item_file',
+    'type' => 'file',
+    'options' => array(
+      'url' => false,
+    ),
+    'text' => array(
+      'add_upload_file_text' => 'Add File'
+    ),
+    'query_args' => array(
+      'type' => array(
+        'image/gif',
+        'image/jpeg',
+        'image/jpg',
+        'image/png',
+        'image/webp',
+      ),
+    ),
+  ]);
+
+  $cmb->add_field([
+    'name' => 'Seção Nossa Sede: Título',
+    'id' => 'structure_headquarters_title',
+    'type' => 'text',
+  ]);
+  $cmb->add_field([
+    'name' => 'Seção Nossa Sede: Subtítulo',
+    'id' => 'structure_headquarters_subtitle',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Nossa sede: URL do Endereço',
+    'id' => 'structure_headquarters_description_address_link',
+    'type' => 'text_url',
+  ]);
+  $cmb->add_field([
+    'name' => 'Nossa sede: Texto do endereço',
+    'id' => 'structure_headquarters_description_address_text',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Nossa sede: URL do telefone',
+    'id' => 'structure_headquarters_description_phone_link',
+    'type' => 'text_url',
+  ]);
+  $cmb->add_field([
+    'name' => 'Nossa sede: Texto do telefone',
+    'id' => 'structure_headquarters_description_phone_text',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Nossa sede: Mapa  (iframe)',
+    'desc' => 'Inserir o iframe daqui:',
+    'id' => 'structure_headquarters_description_maps',
+    'type' => 'textarea_code',
+  ]);
+
+  $estructureHeadquartersImages = $cmb->add_field([
+    'name' => 'Imagens do bazar',
+    'id' => 'structure_headquarters_image_list',
+    'type' => 'group',
+    'repeatable' => true,
+    'options' => [
+      'group_title' => 'Imagem do bazar {#}',
+      'add_button' => 'Adicionar',
+      'remove_button' => 'Remover',
+      'remove_confirm' => esc_html__('Tem certeza que deseja excluir? Isso pode resultar em perdas irreversíveis.'),
+      'sortable' => true,
+    ],
+  ]);
+  $cmb->add_group_field($estructureHeadquartersImages, [
+    'name' => 'Imagem do bazar',
+    'desc' => 'Faça upload de uma imagem ou insira um URL. *Imagem 4x3 horizontal',
+    'id' => 'structure_headquarters_item_file',
+    'type' => 'file',
+    'options' => array(
+      'url' => false,
+    ),
+    'text' => array(
+      'add_upload_file_text' => 'Add File'
+    ),
+    'query_args' => array(
+      'type' => array(
+        'image/gif',
+        'image/jpeg',
+        'image/jpg',
+        'image/png',
+        'image/webp',
+      ),
+    ),
+  ]);
+
 }
 
 add_action('cmb2_admin_init', 'cmb2_fields_doacoes');
-
 function cmb2_fields_doacoes()
 {
+  $cmb = new_cmb2_box([
+    'id' => 'doacoes_box',
+    'title' => 'Seções da página',
+    'object_types' => ['page'],
+    'show_on' => [
+      'key' => 'page-template',
+      'value' => 'page-doacoes.php',
+    ],
+  ]);
+
+  $cmb->add_field([
+    'name' => 'Seção QR Code Pix: Subtítulo',
+    'id' => 'doacoes_pix_subtitle',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Seção QR Code Pix: Descrição',
+    'id' => 'doacoes_pix_description',
+    'type' => 'textarea_small',
+  ]);
+
+  $cmb->add_field([
+    'name' => 'Seção Doações de materiais: Título',
+    'id' => 'doacoes_materials_title',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Seção Doações de materiais: Subtítulo',
+    'id' => 'doacoes_materials_subtitle',
+    'type' => 'textarea_small',
+  ]);
+
+  $cmb->add_field([
+    'name' => 'Lista de materiais 1: Título',
+    'id' => 'doacoes_materiais_list_title_first',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Lista de materiais 1: Descrição',
+    'id' => 'doacoes_materiais_list_description_first',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Lista de materiais 2: Título',
+    'id' => 'doacoes_materiais_list_title_second',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Lista de materiais 2: Descrição',
+    'id' => 'doacoes_materiais_list_description_second',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Lista de materiais 3: Título',
+    'id' => 'doacoes_materiais_list_title_third',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Lista de materiais 3: Descrição',
+    'id' => 'doacoes_materiais_list_description_third',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Lista de materiais 4: Título',
+    'id' => 'doacoes_materiais_list_title_fourth',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Lista de materiais 4: Descrição',
+    'id' => 'doacoes_materiais_list_description_fourth',
+    'type' => 'textarea_small',
+  ]);
 }
 
 add_action('cmb2_admin_init', 'cmb2_fields_doacoes_nota_fiscal');
-
 function cmb2_fields_doacoes_nota_fiscal()
 {
+  $cmb = new_cmb2_box([
+    'id' => 'doacoesNf_box',
+    'title' => 'Seções da página',
+    'object_types' => ['page'],
+    'show_on' => [
+      'key' => 'page-template',
+      'value' => 'page-doacoes-nota-fiscal.php',
+    ],
+  ]);
+
+  $cmb->add_field([
+    'name' => 'Seção Como doar: Subtítulo',
+    'id' => 'doacoesNf_comoDoar_subtitle',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Seção Como doar: Descrição',
+    'id' => 'doacoesNf_comoDoar_description',
+    'type' => 'textarea',
+  ]);
+
+  $cmb->add_field([
+    'name' => 'Passo a passo App: Subtítulo',
+    'id' => 'doacoesNf_list_app_subtitle',
+    'type' => 'text',
+  ]);
+  $doacoesNfListApp = $cmb->add_field([
+    'name' => 'Passo a passo App',
+    'id' => 'doacoesNf_list_app',
+    'type' => 'group',
+    'repeatable' => true,
+    'options' => [
+      'group_title' => 'Imagem do bazar {#}',
+      'add_button' => 'Adicionar',
+      'remove_button' => 'Remover',
+      'remove_confirm' => esc_html__('Tem certeza que deseja excluir? Isso pode resultar em perdas irreversíveis.'),
+      'sortable' => true,
+    ],
+  ]);
+  $cmb->add_group_field($doacoesNfListApp, [
+    'name' => 'Item do passo a passo',
+    // 'desc' => 'Faça upload de uma imagem ou insira um URL.',
+    'id' => 'doacoesNf_list_app_item',
+    'type' => 'text',
+  ]);
+
+  $cmb->add_field([
+    'name' => 'Passo a passo Site: Subtítulo',
+    'id' => 'doacoesNf_list_site_subtitle',
+    'type' => 'text',
+  ]);
+  $doacoesNfListSite = $cmb->add_field([
+    'name' => 'Passo a passo: Site',
+    'id' => 'doacoesNf_list_site',
+    'type' => 'group',
+    'repeatable' => true,
+    'options' => [
+      'group_title' => 'Item do passo a passo {#}',
+      'add_button' => 'Adicionar',
+      'remove_button' => 'Remover',
+      'remove_confirm' => esc_html__('Tem certeza que deseja excluir? Isso pode resultar em perdas irreversíveis.'),
+      'sortable' => true,
+    ],
+  ]);
+  $cmb->add_group_field($doacoesNfListSite, [
+    'name' => 'Item do passo a passo',
+    // 'desc' => 'Faça upload de uma imagem ou insira um URL.',
+    'id' => 'doacoesNf_list_site_item',
+    'type' => 'text',
+  ]);
 }
 
-add_action('cmb2_admin_init', 'cmb2_fields_doacoes_colaboradores');
-
-function cmb2_fields_doacoes_colaboradores()
+add_action('cmb2_admin_init', 'cmb2_fields_colaboradores');
+function cmb2_fields_colaboradores()
 {
+  $cmb = new_cmb2_box([
+    'id' => 'colaboradores_box',
+    'title' => 'Seções da página',
+    'object_types' => ['page'],
+    'show_on' => [
+      'key' => 'page-template',
+      'value' => 'page-colaboradores.php',
+    ],
+  ]);
+
+  $employeesList = $cmb->add_field([
+    'name' => 'Lista de colaboradores',
+    'id' => 'employees_list',
+    'type' => 'group',
+    'repeatable' => true,
+    'options' => [
+      'group_title' => 'Colaborador {#}',
+      'add_button' => 'Adicionar',
+      'remove_button' => 'Remover',
+      'remove_confirm' => esc_html__('Tem certeza que deseja excluir? Isso pode resultar em perdas irreversíveis.'),
+      'sortable' => true,
+    ],
+  ]);
+  $cmb->add_group_field($employeesList, [
+    'name' => 'Imagem do colaborador',
+    'desc' => 'Faça upload de uma imagem ou insira um URL.',
+    'id' => 'employees_item_imagem',
+    'type' => 'file',
+    'options' => array(
+      'url' => false,
+    ),
+    'text' => array(
+      'add_upload_file_text' => 'Add File'
+    ),
+    'query_args' => array(
+      'type' => array(
+        'image/gif',
+        'image/jpeg',
+        'image/jpg',
+        'image/png',
+        'image/webp',
+      ),
+    ),
+  ]);
+  $cmb->add_group_field($employeesList, [
+    'name' => 'Descrição do colaborador',
+    'id' => 'employees_item_description',
+    'type' => 'text',
+  ]);
+  $cmb->add_group_field($employeesList, [
+    'name' => 'Link/Site do colaborador',
+    'id' => 'employees_item_link',
+    'type' => 'text_url',
+  ]);
 }
 
-add_action('cmb2_admin_init', 'cmb2_fields_doacoes_fale_conosco');
-
-function cmb2_fields_doacoes_fale_conosco()
+add_action('cmb2_admin_init', 'cmb2_fields_fale_conosco');
+function cmb2_fields_fale_conosco()
 {
+  $cmb = new_cmb2_box([
+    'id' => 'faleConosco_box',
+    'title' => 'Seções da página',
+    'object_types' => ['page'],
+    'show_on' => [
+      'key' => 'page-template',
+      'value' => 'page-fale-conosco.php',
+    ],
+  ]);
+
+  $cmb->add_field([
+    'name' => 'Seção Nossa Localização: Título',
+    'id' => 'nossaLocalização_title',
+    'type' => 'text',
+  ]);
+  $cmb->add_field([
+    'name' => 'Seção Nossa Localização: Subtítulo',
+    'id' => 'nossaLocalização_subtitle',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Nossa Localização: URL do Endereço',
+    'id' => 'nossaLocalização_description_address_link',
+    'type' => 'text_url',
+  ]);
+  $cmb->add_field([
+    'name' => 'Nossa Localização: Texto do endereço',
+    'id' => 'nossaLocalização_description_address_text',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Nossa Localização: Horários de funcionamento',
+    'id' => 'nossaLocalização_description_schedules',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Nossa Localização: URL do telefone',
+    'id' => 'nossaLocalização_description_phone_link',
+    'type' => 'text_url',
+  ]);
+  $cmb->add_field([
+    'name' => 'Nossa Localização: Texto do telefone',
+    'id' => 'nossaLocalização_description_phone_text',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Nossa Localização: Mapa  (iframe)',
+    'desc' => 'Inserir o iframe daqui:',
+    'id' => 'nossaLocalização_description_maps',
+    'type' => 'textarea_code',
+  ]);
+}
+
+add_action('cmb2_admin_init', 'cmb2_fields_cta');
+function cmb2_fields_cta()
+{
+  $cmb = new_cmb2_box([
+    'id' => 'cta_box',
+    'title' => 'Call to Action',
+    'object_types' => ['page'],
+    'show_on' => [
+      'key' => 'page-template',
+      'value' => 'cta-section.php',
+    ],
+  ]);
+
+  $cmb->add_field([
+    'name' => 'CTA: Descrição',
+    'id' => 'cta_description',
+    'type' => 'textarea',
+  ]);
+  $cmb->add_field([
+    'name' => 'CTA: Link do Botão',
+    'id' => 'cta_button_link',
+    'type' => 'text_url',
+  ]);
+  $cmb->add_field([
+    'name' => 'CTA: Texto do Botão',
+    'id' => 'cta_button_text',
+    'type' => 'text',
+  ]);
 }
 
 ?>

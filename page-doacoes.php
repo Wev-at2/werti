@@ -6,10 +6,11 @@
 <?php if (have_posts()):
   while (have_posts()):
     the_post(); ?>
-    <main class="anac-donations" id="anac-donations">
+    <main class="anac-main anac-donations" id="anac-donations">
+
       <section class="donations-main">
         <div class="donations-main__container container">
-          <div class="donations-main__content grid__container">
+          <div class="donations-main__content main-content grid__container">
             <div class="grid__item--top">
               <h2 class="donations-main__title title title--main">
                 <!-- <?php the_title(); ?> -->
@@ -23,61 +24,101 @@
             </div>
           </div>
           <figure class="donations-main__banners main-banners grid__container">
-            <picture>
-              <source srcset="https://www.anacar.org.br/wp-content/uploads/2024/03/banner_doacao-M.webp" media="(max-width: 767px)"><img src="https://www.anacar.org.br/wp-content/uploads/2024/03/banner_doacao-D.webp" alt="Banner principal da página de doações" title="Banner principal da página de doações">
-            </picture>
+            <?php
+            $mainPageBanners = get_field('main_banner_page');
+            if (!empty($mainPageBanners)) {
+              echo '<figure class="donations-main__banners main-banners grid__container">';
+              foreach ($mainPageBanners as $key => $mainPageBannersItem) { ?>
+                <picture id="donations-main-banner<?php echo $key + 1; ?>">
+                  <source srcset="<?php echo $mainPageBannersItem['main_banner_page_mobile']; ?>" media="(max-width: 767px)">
+                  <img src="<?php echo $mainPageBannersItem['main_banner_page_desktop']; ?>" alt="Banner <?php echo $key + 1; ?>" title="Banner <?php echo $key + 1; ?>">
+                </picture>
+              <?php }
+              echo '</figure>';
+            }
+            ?>
           </figure>
         </div>
       </section>
+
       <section class="donations-qrcodePix">
         <div class="donations-qrcodePix__container container grid__container">
           <div class="grid__item--left">
             <figure class="donations-qrcodePix__figure qr-figure">
               <svg>
-                <use xlink:href="../img/sprites/sprite.svg#anac_qrcode_pix"></use>
+                <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#anac_qrcode_pix"></use>
               </svg>
             </figure>
           </div>
           <div class="grid__item--right donations-qrcodePix__content">
-            <h2 class="donations-qrcodePix__subtitle subtitle">Juntos, construímos corações mais fortes!</h2>
-            <p class="donations-qrcodePix__description description">Escaneie o QR code ao lado ou copie o código abaixo e faça sua doação agora!</p>
+            <h2 class="donations-qrcodePix__subtitle subtitle">
+              <?php the_field('doacoes_pix_subtitle'); ?>
+            </h2>
+            <p class="donations-qrcodePix__description description">
+              <?php the_field('doacoes_pix_description'); ?>
+            </p>
             <div class="donations-qrcodePix__data">
-              <p class="donations-qrcodePix__description description description--bold" id="qrcode-link">00020126360014br.gov.bcb.pix0114625698350001145204000053039865802BR5925ASSOCIACAO NACIONAL DE AS6008BRASILIA62070503***6304F909</p>
+              <p class="donations-qrcodePix__description description description--bold" id="qrcode-link">
+                00020126360014br.gov.bcb.pix0114625698350001145204000053039865802BR5925ASSOCIACAO NACIONAL DE AS6008BRASILIA62070503***6304F909
+              </p>
               <button class="donations-qrcodePix__btn btn" id="copy-link-btn">
                 <figure class="donations-qrcodePix__btn-icon">
                   <svg>
-                    <use xlink:href="../img/sprites/sprite.svg#icon_copy"></use>
+                    <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#icon_copy"></use>
                   </svg>
-                </figure><span>Copiar Link</span>
+                </figure>
+                <span>Copiar Link</span>
               </button>
             </div>
           </div>
         </div>
       </section>
+
       <section class="donations-materials">
         <div class="donations-materials__container container flex-container">
-          <h2 class="donations-materials__title title not-before">DOAÇÕES DE MATERIAIS</h2>
-          <h3 class="donations-materials__subtitle subtitle">Veja quais materiais em geral você pode doar!</h3>
+          <h2 class="donations-materials__title title not-before">
+            <?php the_field('doacoes_materials_title'); ?>
+          </h2>
+          <h3 class="donations-materials__subtitle subtitle">
+            <?php the_field('doacoes_materials_subtitle'); ?>
+          </h3>
           <ul class="donations-materials__card-list grid__container">
             <li class="donations-materials__card-item item-first bg-blue">
-              <h4 class="title not-before not-after">Produtos de limpeza e higiene pessoal</h4>
-              <p class="donations-materials__description description">Papel higiênico, Sabonete para banho, Detergente liquido, Esponja dupla face, Sabão em pó, Panos de prato, Panos de chão.</p>
+              <h4 class="title not-before not-after">
+                <?php the_field('doacoes_materiais_list_title_first'); ?>
+              </h4>
+              <p class="donations-materials__description description">
+                <?php the_field('doacoes_materiais_list_description_first'); ?>
+              </p>
             </li>
             <li class="donations-materials__card-item item-second">
-              <h4 class="title not-before not-after">Produtos de cama/mesa/banho</h4>
-              <p class="donations-materials__description description">Lençóis brancos sem elástico Solteiro, Fronhas brancas, Cobertores de solteiro, Toalhas de banho.</p>
+              <h4 class="title not-before not-after">
+                <?php the_field('doacoes_materiais_list_title_second'); ?>
+              </h4>
+              <p class="donations-materials__description description">
+                <?php the_field('doacoes_materiais_list_description_second'); ?>
+              </p>
             </li>
             <li class="donations-materials__card-item item-third">
-              <h4 class="title not-before not-after">Alimentos</h4>
-              <p class="donations-materials__description description">Arroz, Feijão, Macarrão, Açúcar, Óleo, Café, Vinagre, Sal, Margarina.</p>
+              <h4 class="title not-before not-after">
+                <?php the_field('doacoes_materiais_list_title_third'); ?>
+              </h4>
+              <p class="donations-materials__description description">
+                <?php the_field('doacoes_materiais_list_description_third'); ?>
+              </p>
             </li>
             <li class="donations-materials__card-item item-fourth bg-blue">
-              <h4 class="title not-before not-after">Itens diversos</h4>
-              <p class="donations-materials__description description">Roupas diversas - usadas, em boas condições de uso e/ou novas, Calçados diversos – usados, em boas condições de uso e/ou novas, e brinquedos.</p>
+              <h4 class="title not-before not-after">
+                <?php the_field('doacoes_materiais_list_title_fourth'); ?>
+              </h4>
+              <p class="donations-materials__description description">
+                <?php the_field('doacoes_materiais_list_description_fourth'); ?>
+              </p>
             </li>
           </ul>
         </div>
       </section>
+
     </main>
 
   <?php endwhile; else: ?>
