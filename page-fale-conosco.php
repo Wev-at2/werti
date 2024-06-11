@@ -31,26 +31,25 @@
           </div>
         </div>
       </section>
-
       <section class="contact-form bg-blue">
         <div class="contact-form__container container">
-          <h3 class="contact-form__subtitle subtitle"> Envie sua mensagem</h3>
-          <form class="flex-container" id="contact-form" action="">
+          <h3 class="contact-form__subtitle subtitle">Envie sua mensagem</h3>
+          <form class="flex-container" id="contact-form">
             <div class="contact-form__row row">
-              <label class="contact-form__label description" for="name">Nome: </label>
+              <label class="contact-form__label description" for="name">Nome:</label>
               <input class="contact-form__input" id="name" type="text" name="name" placeholder="Digite seu nome aqui..." required>
             </div>
             <div class="contact-form__row row">
-              <label class="contact-form__label description" for="phone">Telefone: </label>
+              <label class="contact-form__label description" for="phone">Telefone:</label>
               <input class="contact-form__input" id="phone" type="tel" name="phone" placeholder="Digite seu número de telefone aqui..." required>
             </div>
             <div class="contact-form__row row">
-              <label class="contact-form__label description" for="email">E-mail: </label>
+              <label class="contact-form__label description" for="email">E-mail:</label>
               <input class="contact-form__input" id="email" type="email" name="email" placeholder="Digite seu e-mail aqui..." required>
             </div>
             <div class="contact-form__row row">
               <label class="contact-form__label description" for="message">Mensagem:</label>
-              <textarea class="contact-form__textarea" id="message" name="message  " rows="6" placeholder="Digite sua mensagem aqui..." required></textarea>
+              <textarea class="contact-form__textarea" id="message" name="message" rows="6" placeholder="Digite sua mensagem aqui..." required></textarea>
             </div>
             <div class="contact-form__row row">
               <button class="contact-form__submit button submit-btn btn" type="submit">Enviar</button>
@@ -58,6 +57,46 @@
           </form>
         </div>
       </section>
+
+      <script>
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          const form = e.target;
+          const submitButton = form.querySelector('button[type="submit"]');
+          const originalButtonText = submitButton.textContent;
+
+          const formData = {
+            Nome: document.getElementById('name').value,
+            "E-mail": document.getElementById('email').value,
+            Mensagem: document.getElementById('message').value,
+            Telefone: document.getElementById('phone').value
+          };
+
+          fetch("https://api.apispreadsheets.com/data/UhmbTZZ3goNiGTYC/", {
+            method: "POST",
+            body: JSON.stringify({ "data": formData }),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }).then(res => {
+            if (res.status === 201) {
+              // SUCCESS
+              submitButton.textContent = 'Enviado';
+              setTimeout(() => {
+                form.reset();  // Limpar o formulário
+                submitButton.textContent = originalButtonText;
+              }, 2000);  // 2 segundos antes de limpar o formulário
+            } else {
+              // ERROR
+              alert('Houve um erro ao enviar a mensagem.');
+            }
+          }).catch(error => {
+            console.error('Erro:', error);
+            alert('Houve um erro ao enviar a mensagem.');
+          });
+        });
+      </script>
 
       <section class="contact-location">
         <div class="contact-location__container container flex-container">

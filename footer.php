@@ -32,7 +32,7 @@
 						<a class="footer__links--link footer__link" href="/sobre-nos#about-team">Nossa Equipe </a>
 					</li>
 					<li class="footer__links-item">
-						<a class="footer__links--link footer__link" href="https://anacar.org.br/wp-content/uploads/2019/06/estatuto.pdf">Estatuto</a>
+						<a class="footer__links--link footer__link" target="_blank" href="https://anacar.org.br/wp-content/uploads/2019/06/estatuto.pdf">Estatuto</a>
 					</li>
 					<li class="footer__links-item">
 						<a class="footer__links--link footer__link" href="/servicos">Serviços </a>
@@ -63,20 +63,25 @@
 						<a class="footer__links--link footer__link" href="/fale-conosco">Fale Conosco </a>
 					</li>
 					<li class="footer__links-item">
-						<a class="footer__links--link footer__link" href="tel+551155790609">+55 (11) 5579-0609</a>
+						<a class="footer__links--link footer__link" target="_blank" href="tel:+551155790609">+55 (11) 5579-0609</a>
 					</li>
 					<li class="footer__links-item">
-						<a class="footer__links--link footer__link" href="tel+551150822437">+55 (11) 5082-2437</a>
+						<a class="footer__links--link footer__link" target="_blank" href="tel:+551150822437">+55 (11) 5082-2437</a>
 					</li>
 					<li class="footer__links-item">
-						<p class="footer__links--text footer__text"> Rua Caravavelas, 527 - Vila Mariana - São Paulo/SP - 04012-060</p>
+						<a class="footer__links--link footer__link" target="_blank" href="https://maps.app.goo.gl/LQerVv9sZcwzpRGLA">
+							Rua Caravelas, 527 - Vila Mariana - São Paulo/SP - 04012-060
+						</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 		<div class="footer__container-flex">
 			<div class="footer__rightReserved">
-				<p class="footer__rightReserved--text footer__text"> &copy; 2024 - <a class="footer__rightReserved--link footer__link" href="/"> &nbsp;Associação Nacional de Assistência ao Cardíaco - ANAC </a>
+				<p class="footer__rightReserved--text footer__text"> &copy; <?php echo date('Y'); ?> - Todos os direitos reservados.
+					<a class="footer__rightReserved--link footer__link" href="https://www.anacar.org.br/">
+						&nbsp;<?php bloginfo('name'); ?>
+					</a>
 				</p>
 			</div>
 			<div class="footer__socials">
@@ -94,8 +99,7 @@
 						<a class="footer__socials--link footer__link" href="https://www.instagram.com/anac_casadocardiaco/">
 							<figure>
 								<svg>
-									<use xlink:href="
-												<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#instagram"></use>
+									<use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#instagram"></use>
 								</svg>
 							</figure>
 						</a>
@@ -104,8 +108,7 @@
 						<a class="footer__socials--link footer__link" href="https://www.linkedin.com/company/anac-casa-do-cardíaco/about/">
 							<figure>
 								<svg>
-									<use xlink:href="
-												<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#linkedin"></use>
+									<use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#linkedin"></use>
 								</svg>
 							</figure>
 						</a>
@@ -119,8 +122,7 @@
 				<a class="footer__development--link" href="https://wevertoncosta.com.br" title="Weverton Costa | Desevolvimento Web" target="_blank">
 					<figure class="footer__development--img">
 						<svg>
-							<use xlink:href="
-										<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#wc_logo_white">
+							<use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#wc_logo_white">
 							</use>
 						</svg>
 						<figcaption class="footer__development--figcap" hidden> Weverton Costa | Desevolvimento Web</figcaption>

@@ -1599,6 +1599,9 @@ li,
 .anac-donations .container {
     text-align: center;
 }
+.anac-donations .title {
+    left: 0;
+}
 .anac-donations .subtitle {
     margin-bottom: 1.5rem;
 }
@@ -1776,6 +1779,9 @@ li,
     align-items: center;
     gap: 1rem;
 }
+.anac-contact .contact-location__title {
+    left: 0;
+}
 .anac-contact .contact-location__description,
 .anac-contact .contact-location__link {
     margin: 0;
@@ -1891,10 +1897,19 @@ li,
     }
 }
 @media (min-width: 1440px) {
+    .header__logo-link svg {
+        width: 9vw;
+        height: auto;
+    }
+    .header__menu .menu-item,
     .header__cta .btn,
-    .anac-main .btn {
+    .anac-main .btn,
+    .about-team__name {
         font-size: 1.2vw;
         padding: 1vw 2vw;
+    }
+    .header__cta .btn,
+    .anac-main .btn {
         border-radius: 0.9vw;
     }
     .footer__title {
@@ -1918,26 +1933,37 @@ li,
         height: auto;
     }
     #cta .title,
-    .anac-main .title {
-        font-size: 1vw;
+    .anac-main .title,
+    .about-team__position {
+        font-size: 1vw !important;
+        line-height: 1.5vw !important;
     }
     #cta .subtitle,
     .anac-main .subtitle {
-        font-size: 3.3vw;
+        font-size: 3.3vw !important;
+        line-height: 3.6vw !important;
     }
     #cta .subtitle--giant,
     .anac-main .subtitle--giant {
-        font-size: 5vw;
+        font-size: 5vw !important;
+        line-height: 5.5vw !important;
     }
     #cta .subtitle--big,
     .anac-main .subtitle--big {
-        font-size: 2vw;
+        font-size: 2vw !important;
+        line-height: 2.5vw !important;
     }
     #cta .description,
-    #cta li,
     .anac-main .description,
+    .anac-main li,
+    input,
+    textarea input::placeholder,
+    textarea::placeholder {
+        font-size: 1.2vw !important;
+        line-height: 1.8vw !important;
+    }
     .anac-main li {
-        font-size: 1.2vw;
+        padding: 0.8vw 0 !important;
     }
     .anac-home .home-main__banner--figure img {
         width: -webkit-fill-available;
@@ -2502,6 +2528,9 @@ li,
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
         grid-gap: 1.5rem;
+    }
+    .structure-main .structure-main__subtitle {
+        text-align: center;
     }
 }
 @media (max-width: 425px) {

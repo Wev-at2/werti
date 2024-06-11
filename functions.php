@@ -52,6 +52,12 @@ function cmb2_fields_pages()
   ]);
 
   $cmb->add_field([
+    'name' => 'Descrição de SEO',
+    'id' => 'description_seo',
+    'type' => 'textarea',
+    'description' => 'Use entre 140 e 160 caracteres para que o Google possa exibir toda a sua mensagem. Não se esqueça de incluir sua palavra-chave!',
+  ]);
+  $cmb->add_field([
     'name' => 'Título Principal',
     'id' => 'main_title',
     'type' => 'text',
