@@ -124,48 +124,6 @@
         </div>
       </section>
 
-      <section class="services-bazar">
-        <div class="services-bazar__container container">
-          <div class="services-bazar__content">
-            <h2 class="services-bazar__title title">
-              <?php the_field('bazar_title'); ?>
-            </h2>
-            <h3 class="services-bazar__subtitle subtitle">
-              <?php the_field('bazar_subtitle'); ?>
-            </h3>
-          </div>
-          <div class="services-bazar__content grid__container">
-            <div class="grid__item" style="text-align: center">
-              <div class="services-bazar__description description">
-                <a class="services-bazar__link link description" href="<?php the_field('bazar_description_address_link'); ?>" target="_blank">
-                  <?php the_field('bazar_description_address_text'); ?>
-                </a>
-                <p class="description" style="display: block">
-                  <?php the_field('bazar_description_schedules'); ?>
-                </p>
-                <a class="services-bazar__link link description" href="<?php the_field('bazar_description_phone_link'); ?>" target="_blank" style="margin-bottom: 0"> <?php the_field('bazar_description_phone_text'); ?></a>
-              </div>
-            </div>
-            <div class="grid__item bazar_description_maps" style="display: none;">
-              <?php the_field('bazar_description_maps'); ?>
-            </div>
-          </div>
-          <div class="services-bazar__list">
-            <?php
-            $servicosBazarImages = get_field('servicos_bazar_image_list');
-            if (isset($servicosBazarImages)) {
-              foreach ($servicosBazarImages as $servicosBazarImage) { ?>
-                <div class="services-bazar__item">
-                  <figure>
-                    <img src="<?php echo $servicosBazarImage['servicos_bazar_item_file']; ?>" alt="Imagem do bazar: Pulseira" title="Imagem do bazar: Pulseira">
-                  </figure>
-                </div>
-              <?php }
-            } ?>
-          </div>
-        </div>
-      </section>
-
       <section class="services-oficinas bg-blue" style="display: none!important">
         <div class="services-oficinas__container container">
           <div class="services-oficinas__content content">
@@ -197,7 +155,7 @@
 
     </main>
 
-    <?php include ('cta-section.php'); ?>
+    <?php include('cta-section.php'); ?>
 
   <?php endwhile; else: ?>
   <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>

@@ -93,7 +93,7 @@
             <p class="home-about-us__description description">
               <?php the_field('home_about_description'); ?>
             </p>
-            <a class="home-about-us__link btn" href="<?php echo get_stylesheet_directory_uri(); ?>/sobre-nos">
+            <a class="home-about-us__link btn" href="/sobre-nos">
               <?php the_field('home_about_link'); ?>
             </a>
           </article>
@@ -165,6 +165,48 @@
               </p>
             </li>
           </ul>
+        </div>
+      </section>
+
+      <section class="home-bazar">
+        <div class="home-bazar__container container">
+          <div class="home-bazar__content">
+            <h2 class="home-bazar__title title">
+              <?php the_field('bazar_title'); ?>
+            </h2>
+            <h3 class="home-bazar__subtitle subtitle">
+              <?php the_field('bazar_subtitle'); ?>
+            </h3>
+          </div>
+          <div class="home-bazar__content grid__container">
+            <div class="grid__item" style="text-align: center">
+              <div class="home-bazar__description description">
+                <a class="home-bazar__link link description" href="<?php the_field('bazar_description_address_link'); ?>" target="_blank">
+                  <?php the_field('bazar_description_address_text'); ?>
+                </a>
+                <p class="description" style="display: block">
+                  <?php the_field('bazar_description_schedules'); ?>
+                </p>
+                <a class="home-bazar__link link description" href="<?php the_field('bazar_description_phone_link'); ?>" target="_blank" style="margin-bottom: 0"> <?php the_field('bazar_description_phone_text'); ?></a>
+              </div>
+            </div>
+            <div class="grid__item bazar_description_maps" style="display: none;">
+              <?php the_field('bazar_description_maps'); ?>
+            </div>
+          </div>
+          <div class="home-bazar__list">
+            <?php
+            $servicosBazarImages = get_field('servicos_bazar_image_list');
+            if (isset($servicosBazarImages)) {
+              foreach ($servicosBazarImages as $servicosBazarImage) { ?>
+                <div class="home-bazar__item">
+                  <figure>
+                    <img src="<?php echo $servicosBazarImage['servicos_bazar_item_file']; ?>" alt="Imagem do bazar: Pulseira" title="Imagem do bazar: Pulseira">
+                  </figure>
+                </div>
+              <?php }
+            } ?>
+          </div>
         </div>
       </section>
 
@@ -243,10 +285,10 @@
                       const backgroundColor = chart.data.datasets[0].backgroundColor[index];
                       const valuesLegends = chart.data.datasets[0].data[index];
                       return `
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <div class="legend-item">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div class="legend-color" style="background-color: ${backgroundColor}"></div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <span class="legend-label">${valuesLegends}% ${label}</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>`;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="legend-item">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="legend-color" style="background-color: ${backgroundColor}"></div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <span class="legend-label">${valuesLegends}% ${label}</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>`;
                     });
                     legendContainer.innerHTML = legendItems.join('');
                   }
@@ -315,7 +357,7 @@
 
     </main>
 
-    <?php include ('cta-section.php'); ?>
+    <?php include('cta-section.php'); ?>
 
   <?php endwhile; else: ?>
   <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>

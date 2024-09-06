@@ -292,7 +292,7 @@
 
             function () {
                 $(document).ready(function () {
-                    $(".services-bazar__list").slick({
+                    $(".home-bazar__list").slick({
                         lazyLoad: "ondemand",
                         dots: false,
                         arrows: true,

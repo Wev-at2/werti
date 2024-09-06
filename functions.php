@@ -360,6 +360,83 @@ function cmb2_fields_home()
   ]);
 
   $cmb->add_field([
+    'name' => 'Seção Bazar: Título',
+    'id' => 'bazar_title',
+    'type' => 'text',
+  ]);
+  $cmb->add_field([
+    'name' => 'Seção Bazar: Subtítulo',
+    'id' => 'bazar_subtitle',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Bazar: URL do Endereço',
+    'id' => 'bazar_description_address_link',
+    'type' => 'text_url',
+  ]);
+  $cmb->add_field([
+    'name' => 'Bazar: Texto do endereço',
+    'id' => 'bazar_description_address_text',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Bazar: Horários de funcionamento',
+    'id' => 'bazar_description_schedules',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Bazar: URL do telefone',
+    'id' => 'bazar_description_phone_link',
+    'type' => 'text_url',
+  ]);
+  $cmb->add_field([
+    'name' => 'Bazar: Texto do telefone',
+    'id' => 'bazar_description_phone_text',
+    'type' => 'textarea_small',
+  ]);
+  $cmb->add_field([
+    'name' => 'Bazar: Mapa  (iframe)',
+    'desc' => 'Inserir o iframe daqui:',
+    'id' => 'bazar_description_maps',
+    'type' => 'textarea_code',
+  ]);
+
+  $servicosBazarImages = $cmb->add_field([
+    'name' => 'Imagens do bazar',
+    'id' => 'servicos_bazar_image_list',
+    'type' => 'group',
+    'repeatable' => true,
+    'options' => [
+      'group_title' => 'Imagem do bazar {#}',
+      'add_button' => 'Adicionar',
+      'remove_button' => 'Remover',
+      'remove_confirm' => esc_html__('Tem certeza que deseja excluir? Isso pode resultar em perdas irreversíveis.'),
+      'sortable' => true,
+    ],
+  ]);
+  $cmb->add_group_field($servicosBazarImages, [
+    'name' => 'Imagem do bazar',
+    'desc' => 'Faça upload de uma imagem ou insira um URL. *Imagem 4x3 horizontal',
+    'id' => 'servicos_bazar_item_file',
+    'type' => 'file',
+    'options' => array(
+      'url' => false,
+    ),
+    'text' => array(
+      'add_upload_file_text' => 'Add File'
+    ),
+    'query_args' => array(
+      'type' => array(
+        'image/gif',
+        'image/jpeg',
+        'image/jpg',
+        'image/png',
+        'image/webp',
+      ),
+    ),
+  ]);
+
+  $cmb->add_field([
     'name' => 'Título principal (Doações)',
     'id' => 'home_donations_title',
     'type' => 'text',
@@ -867,83 +944,6 @@ function cmb2_fields_servicos()
     'name' => 'Serviço 4: Descrição',
     'id' => 'services_item_description_fourth',
     'type' => 'textarea',
-  ]);
-
-  $cmb->add_field([
-    'name' => 'Seção Bazar: Título',
-    'id' => 'bazar_title',
-    'type' => 'text',
-  ]);
-  $cmb->add_field([
-    'name' => 'Seção Bazar: Subtítulo',
-    'id' => 'bazar_subtitle',
-    'type' => 'textarea_small',
-  ]);
-  $cmb->add_field([
-    'name' => 'Bazar: URL do Endereço',
-    'id' => 'bazar_description_address_link',
-    'type' => 'text_url',
-  ]);
-  $cmb->add_field([
-    'name' => 'Bazar: Texto do endereço',
-    'id' => 'bazar_description_address_text',
-    'type' => 'textarea_small',
-  ]);
-  $cmb->add_field([
-    'name' => 'Bazar: Horários de funcionamento',
-    'id' => 'bazar_description_schedules',
-    'type' => 'textarea_small',
-  ]);
-  $cmb->add_field([
-    'name' => 'Bazar: URL do telefone',
-    'id' => 'bazar_description_phone_link',
-    'type' => 'text_url',
-  ]);
-  $cmb->add_field([
-    'name' => 'Bazar: Texto do telefone',
-    'id' => 'bazar_description_phone_text',
-    'type' => 'textarea_small',
-  ]);
-  $cmb->add_field([
-    'name' => 'Bazar: Mapa  (iframe)',
-    'desc' => 'Inserir o iframe daqui:',
-    'id' => 'bazar_description_maps',
-    'type' => 'textarea_code',
-  ]);
-
-  $servicosBazarImages = $cmb->add_field([
-    'name' => 'Imagens do bazar',
-    'id' => 'servicos_bazar_image_list',
-    'type' => 'group',
-    'repeatable' => true,
-    'options' => [
-      'group_title' => 'Imagem do bazar {#}',
-      'add_button' => 'Adicionar',
-      'remove_button' => 'Remover',
-      'remove_confirm' => esc_html__('Tem certeza que deseja excluir? Isso pode resultar em perdas irreversíveis.'),
-      'sortable' => true,
-    ],
-  ]);
-  $cmb->add_group_field($servicosBazarImages, [
-    'name' => 'Imagem do bazar',
-    'desc' => 'Faça upload de uma imagem ou insira um URL. *Imagem 4x3 horizontal',
-    'id' => 'servicos_bazar_item_file',
-    'type' => 'file',
-    'options' => array(
-      'url' => false,
-    ),
-    'text' => array(
-      'add_upload_file_text' => 'Add File'
-    ),
-    'query_args' => array(
-      'type' => array(
-        'image/gif',
-        'image/jpeg',
-        'image/jpg',
-        'image/png',
-        'image/webp',
-      ),
-    ),
   ]);
 }
 

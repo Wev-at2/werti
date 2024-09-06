@@ -69,8 +69,7 @@
 					?>
 				</nav>
 				<div class="header__cta">
-					<a class="header__cta--btn btn btn_primary js-open-modal" href="
-					<?php echo get_stylesheet_directory_uri(); ?>/doacoes"> Doar agora </a>
+					<a class="header__cta--btn btn btn_primary js-open-modal" href="/doacoes"> Doar agora </a>
 				</div>
 			</div>
 		</div>

@@ -114,11 +114,11 @@
           </div>
           <div class="about-numbers__content">
             <div class="about-numbers__content">
-              <select class="about-numbers__select header__menu-item-link description" id="yearSelect">
+              <select class="about-numbers__select header__menu-item-link description" id="yearSelect" style="display: none!important">
                 <option value="2023">2023</option>
                 <option value="2022">2022</option>
               </select>
-              <table class="about-numbers__table" id="table-lastYear" border="1">
+              <table class="about-numbers__table" id="table-lastYear" border="1" style="display: none!important">
                 <caption class="about-numbers__subtitle subtitle subtitle--big">
                   <?php the_field('about_numbers_list_subtitle_first'); ?>
                 </caption>
@@ -175,6 +175,7 @@
                     <th>2016</th>
                     <th>2015</th>
                     <th>2014</th>
+                    <th>TOTAL</th>
                   </thead>
                   <tbody>
                     <tr class="about-numbers__table--row">
@@ -189,8 +190,9 @@
                       <td class="about-numbers__table--data description">808</td>
                       <td class="about-numbers__table--data description">827</td>
                       <td class="about-numbers__table--data description">910</td>
+                      <td class="about-numbers__table--data description description--bold" style="font-size: 1rem;">5.989</td>
                     </tr>
-                    <tr class="about-numbers__table--row">
+                    <tr class="about-numbers__table--row" style="display: none!important">
                       <td class="about-numbers__table--data description">Diárias</td>
                       <td class="about-numbers__table--data description">3.204</td>
                       <td class="about-numbers__table--data description">3.230</td>
@@ -202,8 +204,9 @@
                       <td class="about-numbers__table--data description">2.449</td>
                       <td class="about-numbers__table--data description">2.412</td>
                       <td class="about-numbers__table--data description">2.061</td>
+                      <td class="about-numbers__table--data description description--bold" style="font-size: 1rem;">27.735</td>
                     </tr>
-                    <tr class="about-numbers__table--row">
+                    <tr class="about-numbers__table--row" style="display: none!important">
                       <td class="about-numbers__table--data description">Refeições servidas</td>
                       <td class="about-numbers__table--data description">10.334</td>
                       <td class="about-numbers__table--data description">12.172</td>
@@ -215,12 +218,13 @@
                       <td class="about-numbers__table--data description">9.796</td>
                       <td class="about-numbers__table--data description">9.648</td>
                       <td class="about-numbers__table--data description">8.244</td>
+                      <td class="about-numbers__table--data description description--bold" style="font-size: 1rem;">102.050</td>
                     </tr>
                   </tbody>
                 </table>
                 <div class="scroll-arrow"></div>
               </div>
-              <div class="table-resume">
+              <div class="table-resume" style="display: none!important">
                 <div class="table-resume__content">
                   <p class="table-resume__description description">
                     <span class="about-numbers__table--data description description--bold">5.989 </span>Beneficiados
@@ -348,7 +352,7 @@
               } ?>
             </div>
           </div>
-          <div class="about-team__content">
+          <div class="about-team__content" style="display: none!important">
             <h4 class="about-team__subtitle subtitle subtitle--big">
               <?php the_field('about_team_list_six_title'); ?>
             </h4>
@@ -368,7 +372,7 @@
               } ?>
             </div>
           </div>
-          <div class="about-team__content">
+          <div class="about-team__content" style="display: none!important">
             <h4 class="about-team__subtitle subtitle subtitle--big">
               <?php the_field('about_team_list_seven_title'); ?>
             </h4>
@@ -393,7 +397,7 @@
 
     </main>
 
-    <?php include ('cta-section.php'); ?>
+    <?php include('cta-section.php'); ?>
 
   <?php endwhile; else: ?>
   <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
