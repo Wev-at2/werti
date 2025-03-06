@@ -1,0 +1,17 @@
+{
+    "functions": {
+        "api/**/*.php": {
+            "runtime": "vercel-php@0.6.0"
+        }
+    },
+    "routes": [
+        { "src": "/home", "dest": "/api/page-home.php" },
+        { "src": "/sobre-nos", "dest": "/api/page-sobre-nos.php" },
+        { "src": "/solucoes", "dest": "/api/page-solucoes.php" },
+        { "src": "/contato", "dest": "/api/page-contato.php" },
+        { "src": "/blog", "dest": "/api/page-blog.php" },
+        { "src": "/blog", "dest": "/api/single.php" },
+        { "src": "/404", "dest": "/api/404.html", "status": 404 },
+        { "src": "/(.*)", "dest": "/api/index.php" }
+    ]
+}

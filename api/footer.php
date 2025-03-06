@@ -29,14 +29,14 @@
 			<div class="footer__socials">
 				<ul class="footer__socials--list footer__list list">
 					<li class="footer__socials--item">
-						<a class="footer__socials--link footer__link display-flex" href="https://www.facebook.com/casadocardiaco.anac.7">
+						<a class="footer__socials--link footer__link display-flex" href="">
 							<figure class="display-flex-center">
 								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/svg/social-facebook-1.svg">
 							</figure>
 						</a>
 					</li>
 					<li class="footer__socials--item">
-						<a class="footer__socials--link footer__link display-flex" href="https://www.instagram.com/anac_casadocardiaco/">
+						<a class="footer__socials--link footer__link display-flex" href="">
 							<figure class="display-flex-center">
 								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/svg/social-instagram.svg">
 							</figure>
@@ -71,7 +71,7 @@
 			</div>
 			<div class="footer__rightReserved">
 				<p class="footer__rightReserved--text footer__text">
-					<a class="footer__rightReserved--link footer__link" href="https://www.anacar.org.br/">
+					<a class="footer__rightReserved--link footer__link" href="">
 						&nbsp;<?php bloginfo('name'); ?>
 					</a> &copy; <?php echo date('Y'); ?> - Todos os direitos reservados.
 				</p>
