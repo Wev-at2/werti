@@ -1,0 +1,105 @@
+/* ========== Página Contato ========== */
+.wer-contact .faq__container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--size-3xl);
+}
+
+.faq__item.display-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    gap: var(--size-base);
+    padding-right: var(--size-base);
+}
+
+.wer-contact .faq__subtitle {
+    text-wrap: nowrap;
+}
+
+.wer-contact .faq__details {
+    width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--color-gray-6);
+    border-radius: 0;
+    transition: var(--transition);
+}
+
+.wer-contact .faq__details[open] {
+    animation: faqOpen 1s ease forwards;
+}
+
+@keyframes faqOpen {
+    from {
+        max-height: 0;
+    }
+    to {
+        max-height: 1000px;
+    }
+}
+
+.wer-contact .faq__summary {
+    padding: 0;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.wer-contact .faq__summary::marker {
+    display: none;
+    content: "";
+    font-size: 0;
+    opacity: 0;
+    visibility: hidden;
+    list-style-type: none;
+}
+
+.wer-contact .faq__summary::after {
+    content: "+";
+    display: block;
+    font-family: var(--font-family-subtitle);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-light);
+    color: var(--secondary-color);
+    position: absolute;
+    right: 0;
+    top: 30%;
+    transition: var(--transition);
+}
+
+.wer-contact .faq__details[open] .faq__summary::after {
+    content: "-";
+    transition: var(--transition-1s);
+}
+
+.wer-contact .faq__question {
+    font-size: var(--font-size-xl);
+    padding: var(--size-base) 0;
+    padding-right: var(--size-3xl);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.wer-contact .faq__answer {
+    margin: 0 auto;
+    padding: var(--font-size-xl);
+    margin-bottom: var(--size-base);
+    color: var(--color-gray-3);
+    background: var(--color-black-transparency);
+    border: 1px solid var(--color-gray-6);
+    border-radius: var(--size-base);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    transition: var(--transition-1s);
+}
+
+.wer-contact .faq__details[open] .faq__answer {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+    transition: var(--transition-1s);
+}

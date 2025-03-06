@@ -1,0 +1,81 @@
+/* ========== Página Sobre nós ========== */
+.wer-about .title,
+.wer-about .subtitle,
+.wer-about .description {
+    text-align: center;
+    margin: 0;
+    left: 0;
+}
+.wer-about .about-mission__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--font-size-xl);
+}
+.wer-about .about-mission__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: var(--font-size-xl);
+    margin-top: var(--font-size-xl);
+}
+.wer-about .about-mission__item {
+    min-height: 20rem;
+    backdrop-filter: blur(24px);
+    background: var(--color-black-transparency);
+    border: 1px solid var(--color-gray-6);
+    border-radius: var(--size-xxs);
+    padding: var(--size-3xl);
+    margin: 0;
+}
+.wer-about .about-team__content {
+    text-align: center;
+}
+.wer-about
+    .about-team__content:not(.wer-about .about-team__content:last-of-type) {
+    margin-bottom: var(--size-3xl);
+}
+.wer-about .about-team__title,
+.wer-about .about-team__subtitle,
+.wer-about .about-team__description {
+    text-align: center;
+    margin: 0;
+    left: 0;
+}
+.wer-about .about-team__list {
+    margin-top: var(--size-base);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--size-3xl);
+}
+.wer-about .about-team__list .slick-slide {
+    margin: 0 var(--size-xxs);
+}
+.wer-about .about-team__item {
+    min-height: 8rem;
+    backdrop-filter: blur(24px);
+    background: var(--color-black-transparency);
+    border: 1px solid var(--color-gray-6);
+    border-radius: var(--size-xs);
+    padding: var(--size-3xl);
+    margin: 0;
+}
+.wer-about .about-team__item p,
+.wer-about .about-team__item span {
+    font-family: var(--font-family-body);
+}
+.wer-about .about-team__name {
+    font-size: var(--font-size-xl);
+    margin: var(--size-xxs) 0;
+}
+.wer-about .about-team__position {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-light);
+}
+.wer-about .grid__container {
+    align-items: center;
+}
+.wer-about .grid__item--top {
+    grid-column: 1/-1;
+}

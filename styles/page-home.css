@@ -1,0 +1,206 @@
+/* ========== Página Home ========== */
+.wer-home .home-main .container {
+    width: 100%;
+    margin-top: var(--size-6xl);
+}
+
+.wer-home .home-main .description {
+    margin: 0;
+}
+
+.wer-home .home-main--content {
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--font-size-xl);
+}
+
+.wer-home .home-main--title,
+.wer-home .home-main--subtitle,
+.wer-home .home-main--description {
+    text-align: center;
+}
+
+.wer-home .home-main__cta--list {
+    display: flex;
+    flex-direction: row;
+    gap: var(--size-base);
+}
+
+.wer-home .home-main__cta--link {
+    width: max-content;
+}
+
+.wer-home .home-main__cta--link .btn:is(:hover, :focus, :focus-visible),
+.wer-home .home-main__cta--link.has-figure:is(:hover, :focus, :focus-visible) {
+    opacity: 0.9;
+}
+
+.wer-home .home-main__cta--link.has-figure {
+    padding: var(--size-xxs);
+    border: 1px solid var(--primary-color);
+    border-radius: 50%;
+    color: var(--secondary-color);
+    background: linear-gradient(
+            112.83deg,
+            rgba(255, 255, 255, 0.4705882353) 0%,
+            rgba(255, 255, 255, 0) 110.84%
+        ),
+        radial-gradient(
+            121.49% 277.08% at 0% 0%,
+            rgba(255, 255, 255, 0.7019607843) 0%,
+            rgba(255, 255, 255, 0) 100%
+        );
+}
+
+.wer-home .home-main__cta--link.has-figure figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wer-home .home-main__cta--link.has-figure figure svg {
+    height: var(--font-size-xl);
+    width: var(--font-size-xl);
+}
+
+.wer-home .home-main__cta--link.has-figure figure svg use {
+    fill: var(--secondary-color);
+    transition: var(--transition);
+}
+
+.wer-home .home-employees__container {
+    width: 75%;
+    margin: var(--size-6xl) auto;
+    text-align: center;
+}
+
+.wer-home .home-employees__title {
+    display: block;
+    margin: 0 auto;
+}
+
+.wer-home .home-employees__subtitle {
+    padding: var(--font-size-xl) 0 var(--size-3xl);
+}
+
+.wer-home .home-employees__item {
+    padding: var(--size-sm) var(--size-base);
+    background: var(--color-gray-5);
+    border-radius: var(--size-base);
+    vertical-align: middle;
+}
+
+.wer-home .home-about-us__image {
+    display: block;
+}
+
+.wer-home .home-about-us__content .home-about-us__image {
+    display: none;
+}
+
+.wer-home .home-about-us__container,
+.wer-home .home-security__container {
+    width: 75%;
+    margin: 0 auto var(--size-6xl);
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--size-3xl);
+}
+
+.wer-home .home-security__container {
+    grid-template-columns: 1fr 2fr;
+    padding: var(--size-3xl) !important;
+    margin-top: var(--size-3xl) !important;
+}
+
+.wer-home .home-security__image {
+    background: var(--color-black-transparency);
+    border-radius: var(--size-base);
+    padding: var(--size-3xl);
+    margin-top: var(--size-3xl);
+}
+
+.wer-home .home-security__content {
+    margin: var(--size-base);
+}
+
+.wer-home .home-about-us__content,
+.wer-home .home-security__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--font-size-xl);
+}
+
+.wer-home .home-about-us__title,
+.wer-home .home-security__title {
+    left: 0;
+}
+
+.wer-home .home-security__subtitle {
+    text-align: left;
+}
+
+.wer-home .home-services__container,
+.wer-home .home-whyus__container {
+    width: 75%;
+    margin: 0 auto var(--size-6xl);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--font-size-xl);
+}
+
+.wer-home .home-whyus__container {
+    width: 75%;
+    margin: 0 auto var(--size-6xl);
+    padding: var(--size-6xl) 0 var(--size-4xl);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--font-size-xl);
+}
+
+.wer-home .home-services__title,
+.wer-home .home-whyus__title {
+    left: 0;
+}
+
+.wer-home .home-services__list,
+.wer-home .home-whyus__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--size-3xl);
+    margin-top: var(--font-size-xl);
+}
+
+.wer-home .home-services__item,
+.wer-home .home-whyus__item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: var(--size-xxxs);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--color-gray-6);
+    background: var(--color-black-transparency);
+    border-radius: var(--size-xxs);
+    padding: var(--size-3xl);
+    margin: 0;
+}
+.wer-home .home-services__item .home-services__subtitle,
+.wer-home .home-whyus__item .home-whyus__subtitle {
+    font-size: var(--font-size-base);
+    color: var(--secondary-color);
+}
+.wer-home .home-services__item .home-services__description,
+.wer-home .home-whyus__item .home-whyus__description {
+    text-align: start;
+}

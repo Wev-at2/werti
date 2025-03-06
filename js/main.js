@@ -271,7 +271,7 @@
                             speed: 5000,
                             autoplay: true,
                             autoplaySpeed: 0,
-                            slidesToShow: 6,
+                            slidesToShow: 4,
                             slidesToScroll: 1,
                             cssEase: "ease",
                             responsive: [
@@ -318,7 +318,7 @@
             /*!**************************************************!*\*/
             function () {
                 $(document).ready(function () {
-                    $(".about-team__list").slick({
+                    $(".about-team__list--off").slick({
                         dots: false,
                         arrows: true,
                         infinite: false,

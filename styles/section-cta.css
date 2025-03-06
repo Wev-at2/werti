@@ -1,0 +1,37 @@
+/* ========== Seção Call to Action ========== */
+#cta {
+    padding: var(--size-5xl) 0;
+}
+
+#cta .cta__container {
+    padding: var(--size-3xl);
+    margin: 0 auto;
+    border: 1px solid var(--color-gray-6);
+    border-radius: var(--size-base);
+    background: var(--color-black-transparency);
+    text-align: start;
+    display: grid;
+    grid-template-columns: 70% 1fr;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    gap: var(--font-size-xl);
+    transition: all 1s ease;
+}
+
+#cta .cta__content--left {
+    padding-right: var(--size-3xl);
+}
+
+#cta .cta__content--right {
+    width: max-content;
+}
+
+#cta .subtitle {
+    padding-bottom: var(--size-base);
+}
+
+#cta .cta__link {
+    width: 100%;
+    text-align: center;
+}

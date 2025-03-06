@@ -7,316 +7,41 @@
   while (have_posts()):
     the_post(); ?>
 
-    <main class="anac-main anac-home" id="anac-home">
+    <main class="wer-main wer-home" id="wer-home">
 
       <section class="home-main">
-        <div class="home-main__banner--container container">
-
-          <?php
-          $mainHomeBanners = get_field('main_banners');
-          if (isset($mainHomeBanners)) {
-            foreach ($mainHomeBanners as $key => $mainHomeBanner) { ?>
-              <li>
-                <figure class="home-main__banner--figure figure" id="banner<?php echo $key + 1; ?>">
-                  <picture>
-                    <source srcset="<?php echo $mainHomeBanner['main_banner_image_mobile']; ?>" media="(max-width: 576px)">
-                    <img src="<?php echo $mainHomeBanner['main_banner_image_desktop']; ?>" alt="Banner <?php echo $key + 1; ?>" title="Banner <?php echo $key + 1; ?>">
-                  </picture>
-                  <figcaption class="home-main__banner--content content">
-                    <h2 class="home-main__banner--title title" style="color:<?php echo $mainHomeBanner['main_banner_fontcolor_title']; ?>">
-                      <?php echo $mainHomeBanner['main_banner_title']; ?>
-                    </h2>
-                    <h1 class="home-main__banner--subtitle subtitle subtitle--giant" style="color:<?php echo $mainHomeBanner['main_banner_fontcolor_subtitle']; ?>">
-                      <?php echo $mainHomeBanner['main_banner_subtitle']; ?>
-                    </h1>
-                    <div class="home-main__cta">
-                      <ul class="home-main__cta--list">
-                        <?php if ($key !== 0) { // Verifica se não é o primeiro banner ?>
-                          <li class="home-main__cta--item">
-                            <a class="home-main__cta--link btn" href="<?php echo $mainHomeBanner['main_banner_cta_link']; ?>">
-                              <?php echo $mainHomeBanner['main_banner_cta_text']; ?>
-                            </a>
-                          </li>
-                        <?php } else { ?>
-                          <li class="home-main__cta--item">
-                            <a class="home-main__cta--link has-figure" href="https://www.facebook.com/casadocardiaco.anac.7">
-                              <figure>
-                                <svg>
-                                  <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#facebook"></use>
-                                </svg>
-                              </figure>
-                            </a>
-                          </li>
-                          <li class="home-main__cta--item">
-                            <a class="home-main__cta--link has-figure" href="https://www.instagram.com/anac_casadocardiaco/">
-                              <figure>
-                                <svg>
-                                  <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#instagram"></use>
-                                </svg>
-                              </figure>
-                            </a>
-                          </li>
-                          <li class="home-main__cta--item">
-                            <a class="home-main__cta--link has-figure" href="https://www.linkedin.com/company/anac-casa-do-cardíaco/about/">
-                              <figure>
-                                <svg>
-                                  <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#linkedin"></use>
-                                </svg>
-                              </figure>
-                            </a>
-                          </li>
-                        <?php } ?>
-                      </ul>
-                    </div>
-                  </figcaption>
-                </figure>
-              </li>
-            <?php }
-          } ?>
-
-        </div>
-      </section>
-
-      <section class="home-about-us">
-        <div class="home-about-us__container container">
-          <figure class="home-about-us__image">
-            <source srcset="<?php the_field('home_about_image_mobile'); ?>" media="(max-width: 767px)">
-            <img src="<?php the_field('home_about_image_desktop'); ?>" alt="Banner Sobre Nós" title="Banner Sobre Nós">
-          </figure>
-          <article class="home-about-us__content">
-            <h2 class="home-about-us__title title not-before">
-              <?php the_field('home_about_title'); ?>
+        <div class="home-main--container container display-flex-center">
+          <div class="home-main--content content display-flex-center">
+            <h2 class="home-main--title title title-basic">
+              <figure class="home-main__title__figure title-figure title-figure--client">
+                <img id="client-img1" src="<?php the_field('maintitle_client_img1'); ?>" alt="Cliente" title="Cliente">
+                <img id="client-img2" src="<?php the_field('maintitle_client_img2'); ?>" alt="Cliente" title="Cliente">
+                <img id="client-img3" src="<?php the_field('maintitle_client_img3'); ?>" alt="Cliente" title="Cliente">
+              </figure>
+              <?php the_field('main_home_title'); ?>
             </h2>
-            <h3 class="home-about-us__subtitle subtitle">
-              <?php the_field('home_about_subtitle'); ?>
-            </h3>
-            <p class="home-about-us__description description">
-              <?php the_field('home_about_description'); ?>
+            <h1 class="home-main--subtitle subtitle subtitle--giant">
+              <?php the_field('main_home_subtitle'); ?>
+            </h1>
+            <p class="home-main--description description description--giant" style="color:<?php the_field('home_about_subtitle'); ?>">
+              <?php the_field('main_home_description'); ?>
             </p>
-            <a class="home-about-us__link btn" href="/sobre-nos">
-              <?php the_field('home_about_link'); ?>
-            </a>
-          </article>
-        </div>
-      </section>
-
-      <section class="home-services">
-        <div class="home-services__container flex">
-          <h2 class="home-services__title title">
-            <?php the_field('home_services_title'); ?>
-          </h2>
-          <h3 class="home-services__subtitle subtitle">
-            <?php the_field('home_services_subtitle'); ?>
-          </h3>
-          <p class="home-services__description description">
-            <?php the_field('home_services_description'); ?>
-          </p>
-          <ul class="home-services__container--grid">
-            <li class="home-services__item">
-              <figure class="home-services__icon">
-                <svg>
-                  <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#anac_icon-hospedagem"></use>
-                </svg>
-              </figure>
-              <h4 class="home-services__subtitle subtitle subtitle--big">
-                <?php the_field('home_services_one_title'); ?>
-              </h4>
-              <p class="home-services__description description">
-                <?php the_field('home_services_one_description'); ?>
-              </p>
-            </li>
-            <li class="home-services__item">
-              <figure class="home-services__icon">
-                <svg>
-                  <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#anac_icon-alimentacao"></use>
-                </svg>
-              </figure>
-              <h4 class="home-services__subtitle subtitle subtitle--big">
-                <?php the_field('home_services_two_title'); ?>
-              </h4>
-              <p class="home-services__description description">
-                <?php the_field('home_services_two_description'); ?>
-              </p>
-            </li>
-            <li class="home-services__item">
-              <figure class="home-services__icon">
-                <svg>
-                  <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#anac_icon-servicos_sociais"></use>
-                </svg>
-              </figure>
-              <h4 class="home-services__subtitle subtitle subtitle--big">
-                <?php the_field('home_services_three_title'); ?>
-              </h4>
-              <p class="home-services__description description">
-                <?php the_field('home_services_three_description'); ?>
-              </p>
-            </li>
-            <li class="home-services__item" style="display: none!important">
-              <figure class="home-services__icon">
-                <svg>
-                  <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#anac_icon-transporte"></use>
-                </svg>
-              </figure>
-              <h4 class="services__subtitle subtitle subtitle--big">
-                <?php the_field('home_services_four_title'); ?>
-              </h4>
-              <p class="services__description description">
-                <?php the_field('home_services_four_description'); ?>
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="home-bazar">
-        <div class="home-bazar__container container">
-          <div class="home-bazar__content">
-            <h2 class="home-bazar__title title">
-              <?php the_field('bazar_title'); ?>
-            </h2>
-            <h3 class="home-bazar__subtitle subtitle">
-              <?php the_field('bazar_subtitle'); ?>
-            </h3>
-          </div>
-          <div class="home-bazar__content grid__container">
-            <div class="grid__item" style="text-align: center">
-              <div class="home-bazar__description description">
-                <a class="home-bazar__link link description" href="<?php the_field('bazar_description_address_link'); ?>" target="_blank">
-                  <?php the_field('bazar_description_address_text'); ?>
-                </a>
-                <p class="description" style="display: block">
-                  <?php the_field('bazar_description_schedules'); ?>
-                </p>
-                <a class="home-bazar__link link description" href="<?php the_field('bazar_description_phone_link'); ?>" target="_blank" style="margin-bottom: 0"> <?php the_field('bazar_description_phone_text'); ?></a>
-              </div>
-            </div>
-            <div class="grid__item bazar_description_maps" style="display: none;">
-              <?php the_field('bazar_description_maps'); ?>
+            <div class="home-main__cta">
+              <ul class="home-main__cta--list list">
+                <li class="home-main__cta--item">
+                  <a class="home-main__cta--link btn" href="<?php echo $mainHomeBanner['main_home_cta_link']; ?>">
+                    <?php the_field('main_home_cta_text'); ?>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
-          <div class="home-bazar__list">
-            <?php
-            $servicosBazarImages = get_field('servicos_bazar_image_list');
-            if (isset($servicosBazarImages)) {
-              foreach ($servicosBazarImages as $servicosBazarImage) { ?>
-                <div class="home-bazar__item">
-                  <figure>
-                    <img src="<?php echo $servicosBazarImage['servicos_bazar_item_file']; ?>" alt="Imagem do bazar: Pulseira" title="Imagem do bazar: Pulseira">
-                  </figure>
-                </div>
-              <?php }
-            } ?>
-          </div>
-        </div>
-      </section>
-
-      <section class="home-donation bg-blue">
-        <div class="home-donation__container grid">
-          <div class="grid__left">
-            <h2 class="home-donation__title title not-after">
-              <?php the_field('home_donations_title'); ?>
-            </h2>
-            <h3 class="home-donation__subtitle subtitle">
-              <?php the_field('home_donations_subtitle'); ?>
-            </h3>
-            <h3 class="home-donation__description description">
-              <?php the_field('home_donations_description'); ?>
-            </h3>
-            <div class="legend-container"></div>
-          </div>
-
-          <?php
-          $homeDonationsChart = get_field('home_donations_chart');
-
-          if ($homeDonationsChart) {
-            $labelsDonations = [];
-            $valuesDonations = [];
-            $colorsDonations = [];
-
-            // Iterar sobre os grupos de campos
-            foreach ($homeDonationsChart as $homeDonationsChartItem) {
-              // Recuperar os valores dos campos
-              $labelsDonations[] = $homeDonationsChartItem['home_donations_chart_label'];
-              $valuesDonations[] = $homeDonationsChartItem['home_donations_chart_value'];
-              $colorsDonations[] = $homeDonationsChartItem['home_donations_chart_color'];
-            }
-            ?>
-            <div class="grid__right">
-              <div class="home-donation__chart-container">
-                <canvas id="anacDonations"></canvas>
-              </div>
-              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-              <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                  const ctx = document.getElementById('anacDonations');
-                  const labelsDonations = <?php echo json_encode($labelsDonations); ?>;
-                  const valuesDonations = <?php echo json_encode($valuesDonations); ?>;
-                  const colorsDonations = <?php echo json_encode($colorsDonations); ?>;
-                  const chart = new Chart(ctx, {
-                    type: 'doughnut',
-                    data: {
-                      labels: labelsDonations,
-                      datasets: [{
-                        label: 'Divisão em porcentagem',
-                        data: valuesDonations,
-                        borderWidth: 1,
-                        backgroundColor: colorsDonations
-                      }]
-                    },
-                    options: {
-                      plugins: {
-                        legend: {
-                          display: false
-                        }
-                      },
-                      scales: {
-                        y: {
-                          display: false,
-                          beginAtZero: true
-                        }
-                      }
-                    }
-                  });
-
-                  // Função para criar a legenda na div .legend-container
-                  function createLegend() {
-                    const legendContainer = document.querySelector('.legend-container');
-                    const legendItems = chart.data.labels.map((label, index) => {
-                      const backgroundColor = chart.data.datasets[0].backgroundColor[index];
-                      const valuesLegends = chart.data.datasets[0].data[index];
-                      return `
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="legend-item">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="legend-color" style="background-color: ${backgroundColor}"></div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <span class="legend-label">${valuesLegends}% ${label}</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>`;
-                    });
-                    legendContainer.innerHTML = legendItems.join('');
-                  }
-
-                  // Atualiza a legenda quando o gráfico é inicializado
-                  createLegend();
-
-                  // Adiciona evento de clique na legenda para ocultar/mostrar o conjunto de dados correspondente
-                  document.querySelector('.legend-container').addEventListener('click', function (e) {
-                    if (e.target.classList.contains('legend-label')) {
-                      const index = Array.from(e.target.parentNode.parentNode.children).indexOf(e.target.parentNode);
-                      const meta = chart.getDatasetMeta(0);
-                      meta.data[index].hidden = !meta.data[index].hidden;
-                      chart.update();
-                    }
-                  });
-                });
-              </script>
-            </div>
-            <?php
-          } ?>
-
         </div>
       </section>
 
       <section class="home-employees">
-        <div class="home-employees__container">
-          <h2 class="home-employees__title title">
+        <div class="home-employees__container container">
+          <h2 class="home-employees__title title title-basic">
             <?php the_field('home_employees_title'); ?>
           </h2>
           <h3 class="home-employees__subtitle subtitle">
@@ -342,22 +67,212 @@
         </div>
       </section>
 
-      <section class="home-instagram bg-blue">
-        <div class="home-instagram__container">
-          <h2 class="home-instagram__title title">
-            <?php the_field('home_instagram_title'); ?>
-          </h2>
-          <h3 class="home-instagram__subtitle subtitle">
-            <?php the_field('home_instagram_subtitle'); ?>
-          </h3>
-          <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-          <div class="elfsight-app-06b3c6ba-2a2d-4618-b3e3-96cf6597205b" data-elfsight-app-lazy></div>
+      <section class="home-about-us">
+        <div class="home-about-us__container container">
+          <article class="home-about-us__content content">
+            <h2 class="home-about-us__title title ">
+              <figure class="title-figure display-flex-center">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/svg/wer_about-us.svg">
+              </figure>
+              <?php the_field('home_about_title'); ?>
+            </h2>
+            <h3 class="home-about-us__subtitle subtitle">
+              <?php the_field('home_about_subtitle'); ?>
+            </h3>
+            <p class="home-about-us__description description">
+              <?php the_field('home_about_description'); ?>
+            </p>
+            <figure class="home-about-us__image">
+              <img src="<?php the_field('home_about_image_desktop'); ?>" alt="Banner Sobre Nós" title="Banner Sobre Nós">
+            </figure>
+            <ul class="home-about-us__link-list list display-flex">
+              <li class="home-about-us__link-item">
+                <a class="home-about-us__link btn" href="<?php echo $mainHomeBanner['home_about_cta1_link']; ?>">
+                  <?php the_field('home_about_cta1_texto'); ?>
+                </a>
+              </li>
+              <li class="home-about-us__link-item">
+                <a class="home-about-us__link btn btn-secondary" href="<?php echo $mainHomeBanner['home_about_cta2_link']; ?>">
+                  <?php the_field('home_about_cta2_texto'); ?>
+                </a>
+              </li>
+            </ul>
+          </article>
+          <figure class="home-about-us__image">
+            <img src="<?php the_field('home_about_image_desktop'); ?>" alt="Banner Sobre Nós" title="Banner Sobre Nós">
+          </figure>
         </div>
       </section>
 
-    </main>
+      <section class="home-services">
+        <div class="home-services__container container display-flex">
+          <div class="home-services__content content">
+            <h2 class="home-services__title title">
+              <figure class="title-figure display-flex-center">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/svg/wer_services.svg">
+              </figure>
+              <?php the_field('home_services_title'); ?>
+            </h2>
+            <h3 class="home-services__subtitle subtitle">
+              <?php the_field('home_services_subtitle'); ?>
+            </h3>
+          </div>
+          <ul class="home-services__list list">
+            <li class="home-services__item item">
+              <figure class="home-services__icon icon-bg display-flex-center">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/svg/wer_services-tendencias_das_redes.svg">
+              </figure>
+              <h4 class="home-services__subtitle subtitle ">
+                <?php the_field('home_services_one_title'); ?>
+              </h4>
+              <p class="home-services__description description">
+                <?php the_field('home_services_one_description'); ?>
+              </p>
+            </li>
+            <li class="home-services__item">
+              <figure class="home-services__icon icon-bg display-flex-center">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/svg/wer_services-consolidacao_infraestrutura.svg">
+              </figure>
+              <h4 class="home-services__subtitle subtitle ">
+                <?php the_field('home_services_two_title'); ?>
+              </h4>
+              <p class="home-services__description description">
+                <?php the_field('home_services_two_description'); ?>
+              </p>
+            </li>
+            <li class="home-services__item">
+              <figure class="home-services__icon icon-bg display-flex-center">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/svg/wer_services-flexibilidade_estrutura.svg">
+              </figure>
+              <h4 class="home-services__subtitle subtitle ">
+                <?php the_field('home_services_three_title'); ?>
+              </h4>
+              <p class="home-services__description description">
+                <?php the_field('home_services_three_description'); ?>
+              </p>
+            </li>
+            <li class="home-services__item">
+              <figure class="home-services__icon icon-bg display-flex-center">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/svg/wer_services-gerenciamento_espaco.svg">
+              </figure>
+              <h4 class="home-services__subtitle subtitle ">
+                <?php the_field('home_services_four_title'); ?>
+              </h4>
+              <p class="home-services__description description">
+                <?php the_field('home_services_four_description'); ?>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-    <?php include('cta-section.php'); ?>
+      <section class="home-security">
+        <div class="home-security__container container">
+          <figure class="home-security__image">
+            <source srcset="<?php the_field('home_security_image_mobile'); ?>" media="(max-width: 767px)">
+            <img src="<?php the_field('home_security_image_desktop'); ?>" alt="Banner Sobre Nós" title="Banner Sobre Nós">
+          </figure>
+          <article class="home-security__content content">
+            <h2 class="home-security__title title ">
+              <figure class="title-figure display-flex-center">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/svg/wer_security.svg">
+              </figure>
+              <?php the_field('home_security_title'); ?>
+            </h2>
+            <h3 class="home-security__subtitle subtitle">
+              <?php the_field('home_security_subtitle'); ?>
+            </h3>
+            <p class="home-security__description description">
+              <?php the_field('home_security_description'); ?>
+            </p>
+            <ul class="home-security__link-list list display-flex">
+              <li class="home-security__link-item">
+                <a class="home-security__link btn" href="<?php echo $mainHomeBanner['home_security_cta_link']; ?>">
+                  <?php the_field('home_security_cta_text'); ?>
+                </a>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="home-whyus ">
+        <div class="home-whyus__container container">
+          <div class="home-whyus__content content">
+            <h2 class="home-whyus__title title">
+              <figure class="title-figure display-flex-center">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/svg/wer_whyus.svg">
+              </figure>
+              <?php the_field('home_whyus_title'); ?>
+            </h2>
+            <h3 class="home-whyus__subtitle subtitle">
+              <?php the_field('home_whyus_subtitle'); ?>
+            </h3>
+          </div>
+          <ul class="home-whyus__list list">
+            <li class="home-whyus__item">
+              <figure class="home-whyus__icon icon-bg display-flex-center">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/svg/wer_whyus-military_tech.svg">
+              </figure>
+              <h4 class="home-whyus__subtitle subtitle ">
+                <?php the_field('home_whyus1_subtitle'); ?>
+              </h4>
+              <p class="home-whyus__description description">
+                <?php the_field('home_whyus1_description'); ?>
+              </p>
+            </li>
+            <li class="home-whyus__item">
+              <figure class="home-whyus__icon icon-bg display-flex-center">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/svg/wer_whyus-nearby.svg">
+              </figure>
+              <h4 class="home-whyus__subtitle subtitle ">
+                <?php the_field('home_whyus2_subtitle'); ?>
+              </h4>
+              <p class="home-whyus__description description">
+                <?php the_field('home_whyus2_description'); ?>
+              </p>
+            </li>
+            <li class="home-whyus__item">
+              <figure class="home-whyus__icon icon-bg display-flex-center">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/svg/wer_whyus-handshake.svg">
+              </figure>
+              <h4 class="home-whyus__subtitle subtitle ">
+                <?php the_field('home_whyus3_subtitle'); ?>
+              </h4>
+              <p class="home-whyus__description description">
+                <?php the_field('home_whyus3_description'); ?>
+              </p>
+            </li>
+            <li class="home-whyus__item">
+              <figure class="home-whyus__icon icon-bg display-flex-center">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/svg/wer_whyus-storage.svg">
+              </figure>
+              <h4 class="home-whyus__subtitle subtitle ">
+                <?php the_field('home_whyus4_subtitle'); ?>
+              </h4>
+              <p class="home-whyus__description description">
+                <?php the_field('home_whyus4_description'); ?>
+              </p>
+            </li>
+            <li class="home-whyus__item">
+              <figure class="home-whyus__icon icon-bg display-flex-center">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/svg/wer_whyus-eco.svg">
+              </figure>
+              <h4 class="home-whyus__subtitle subtitle ">
+                <?php the_field('home_whyus5_subtitle'); ?>
+              </h4>
+              <p class="home-whyus__description description">
+                <?php the_field('home_whyus5_description'); ?>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <?php include('contact-section.php'); ?>
+      <?php include('cta-section.php'); ?>
+
+    </main>
 
   <?php endwhile; else: ?>
   <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>

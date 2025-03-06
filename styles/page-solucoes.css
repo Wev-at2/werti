@@ -1,0 +1,91 @@
+/* ========== Página Soluções ========== */
+.wer-services .services-main__container.container {
+    padding-bottom: 0;
+}
+.wer-services .services-main__content {
+    margin: var(--size-5xl) 0;
+}
+
+.wer-services .services-main__content.grid__container {
+    align-items: flex-start;
+}
+.wer-services .services-items__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-xl);
+}
+.wer-services .services-items__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--size-base);
+}
+
+.wer-services .services-items__head {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--size-base);
+}
+.wer-services .services-items__icon {
+    margin: 0;
+}
+
+.wer-services .services-items__subitem {
+    list-style: disc;
+    font-family: var(--font-family-body);
+    margin-left: var(--size-3xl);
+}
+
+.wer-services .services-items__subitem:not(:last-of-type) {
+    margin: 0 0 0 var(--size-3xl);
+}
+.wer-services .services-oficinas__container {
+    padding: var(--size-5xl) 0;
+}
+
+.wer-services .services-oficinas__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--size-base);
+}
+
+.wer-services .services-oficinas__content .grid__container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    grid-gap: var(--size-3xl);
+}
+
+.wer-services .services-oficinas__image {
+    position: relative;
+}
+
+.wer-services .services-oficinas__image source,
+.wer-services .services-oficinas__image img {
+    border-radius: var(--size-sm);
+}
+
+.wer-services
+    .services-oficinas__image:is(:hover, :focus, :focus-visible)
+    figcaption {
+    transform: scale(1.05);
+}
+
+.wer-services .services-oficinas__legend {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-xl);
+    color: var(--primary-color);
+    position: absolute;
+    bottom: var(--size-base);
+    left: var(--size-base);
+    transition: var(--transition);
+}
+
+.wer-services .grid__item--top {
+    grid-column: 1/-1;
+}

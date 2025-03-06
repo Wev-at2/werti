@@ -36,12 +36,14 @@
 	<link rel="apple-touch-icon" sizes="1024x1024" href="<?php echo get_template_directory_uri(); ?>/img/favicons/apple-touch-icon-1024x1024.png">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style.css">
 	<?php wp_head(); ?>
 </head>
 
-<body>
+<body class="wer-body">
 	<header class="header sticky">
 		<div class="header__container">
 			<div class="header__logo">
@@ -49,7 +51,7 @@
 					<figure class="header__logo-img">
 						<svg>
 							<use xlink:href="
-							<?php echo get_stylesheet_directory_uri(); ?>/img/sprites/sprite.svg#anac_logo_v2">
+							<?php echo get_stylesheet_directory_uri(); ?>/img/svg/wer_logo.svg#wer_logo_white">
 							</use>
 						</svg>
 					</figure>
@@ -69,7 +71,9 @@
 					?>
 				</nav>
 				<div class="header__cta">
-					<a class="header__cta--btn btn btn_primary js-open-modal" href="/doacoes"> Doar agora </a>
+					<a class="header__cta--btn btn btn_primary js-open-modal" href="/">
+						Cotar agora!
+					</a>
 				</div>
 			</div>
 		</div>

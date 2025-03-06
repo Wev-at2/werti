@@ -1,0 +1,108 @@
+/* ========== Seção Contatos ========== */
+.contact .contact__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--size-3xl);
+    padding-top: var(--size-11xl);
+}
+
+.contact .contact__content {
+    width: 100%;
+    padding: 0;
+    height: max-content;
+    align-items: flex-start;
+}
+
+.contact .title,
+.contact .subtitle,
+.contact .description {
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.contact .contact__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: var(--size-base);
+}
+
+.contact .contact__link:is(:hover, :focus, :focus-visible) {
+    transform: scale(1.03);
+}
+
+.contact .contact__link {
+    width: 100%;
+    padding: var(--size-3xl);
+    margin: 0 auto;
+    background: var(--color-black-transparency);
+    border: 1px solid var(--color-gray-6);
+    border-radius: var(--size-base);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.contact .contact__link--icon-arrow figure {
+    background: var(--color-black-transparency);
+    border: 1px solid var(--color-black-transparency);
+}
+
+.contact .contact__link--text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: var(--size-xxs);
+}
+
+.contact .contact__link--text strong {
+    color: var(--secondary-color);
+    font-weight: var(--font-weight-bold);
+}
+
+.contact .contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--size-base);
+}
+
+.contact .contact-form__row {
+    grid-column: 1 / -1;
+}
+
+.contact .contact-form__subtitle {
+    font-size: var(--font-size-xl);
+}
+
+.contact .contact-form__content {
+    padding: var(--size-3xl);
+    margin: 0 auto;
+    border: 1px solid var(--color-gray-6);
+    border-radius: var(--size-base);
+    background: var(--color-black-transparency);
+}
+
+.contact .contact-form__label {
+    display: none;
+}
+
+.contact .contact-form__input,
+.contact .contact-form__textarea {
+    width: 100%;
+    padding: var(--size-base);
+    margin: 0 auto;
+    border: 1px solid var(--color-gray-6);
+    border-radius: var(--size-xxs);
+    background: var(--color-black-transparency);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-base);
+    color: var(--primary-color);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.contact .contact-form__submit {
+    display: block;
+    width: 100%;
+}

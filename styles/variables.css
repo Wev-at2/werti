@@ -1,0 +1,146 @@
+:root {
+    /* Sizes */
+    --size-xxxs: 0.25rem; /* 4px */
+    --size-xxs: 0.5rem; /* 8px */
+    --size-xs: 0.625rem; /* 10px */
+    --size-sm: 0.75rem; /* 12px */
+    --size-md: 0.875rem; /* 14px */
+    --size-base: 1rem; /* 16px */
+    --size-lg: 1.125rem; /* 18px */
+    --size-xl: 1.5rem; /* 24px */
+    --size-2xl: 1.75rem; /* 28px */
+    --size-3xl: 2rem; /* 32px */
+    --size-4xl: 3rem; /* 48px */
+    --size-5xl: 4rem; /* 64px */
+    --size-6xl: 5rem; /* 80px */
+    --size-7xl: 6rem; /* 96px */
+    --size-8xl: 7rem; /* 112px */
+    --size-9xl: 8rem; /* 128px */
+    --size-10xl: 9rem; /* 144px */
+    --size-11xl: 10rem; /* 160px */
+    --size-12xl: 11rem; /* 176px */
+    --size-13xl: 12rem; /* 192px */
+    --size-14xl: 13rem; /* 208px */
+    --size-15xl: 14rem; /* 224px */
+    --size-16xl: 15rem; /* 240px */
+
+    /* Typography */
+    --font-family-title: "Inter", sans-serif;
+    --font-family-subtitle: "Inter", sans-serif;
+    --font-family-description: "Inter", sans-serif;
+    --font-family-body: "Inter", sans-serif;
+
+    --font-size-xs: var(--size-xs);
+    --font-size-sm: var(--size-sm);
+    --font-size-md: var(--size-md);
+    --font-size-base: var(--size-base);
+    --font-size-lg: var(--size-lg);
+    --font-size-xl: var(--size-xl);
+    --font-size-2xl: var(--size-2xl);
+    --font-size-3xl: var(--size-3xl);
+
+    --font-weight-thin: 100;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+
+    --line-height-xs: 1;
+    --line-height-md: 1.5;
+    --line-height-lg: 2;
+
+    /* Colors */
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-red: #ff0000;
+    --color-purple: #340d4c;
+    --color-blue-1: #00aeff;
+    --color-blue-2: #005881;
+
+    --color-gray-1: #efefef;
+    --color-gray-2: #d9d9d9;
+    --color-gray-3: #cccccc;
+    --color-gray-4: #808080;
+    --color-gray-5: #383838;
+    --color-gray-6: #333333;
+
+    --color-black-transparency: #251f1c80;
+    --color-black-transparency-2: #000000b3;
+    --color-white-transparency: #ffffffb3;
+    --color-white-transparency-2: #ffffff0f;
+    --color-blue-transparency-1: #000e14;
+
+    --linear-gradient-1: linear-gradient(
+        180deg,
+        var(--color-blue-1) 50%,
+        var(--color-blue-2) 100%
+    );
+    --linear-gradient-2: linear-gradient(
+        153deg,
+        rgba(0, 174, 255, 1) 0%,
+        rgba(0, 0, 0, 1) 25%,
+        rgba(0, 0, 0, 1) 75%,
+        rgba(0, 174, 255, 1) 100%
+    );
+
+    --main-bg-color: var(--color-blue-transparency-1);
+    --primary-color: var(--color-white);
+    --secondary-color: var(--color-blue-1);
+    --terciary-color: var(--color-blue-2);
+
+    /* Transitions */
+    --transition: all 0.4s ease;
+    --transition-1s: all 1s ease;
+
+    /* Box Shadow */
+    --box-shadow-hover: 1px 1px 20px -2px var(--color-white-transparency-2);
+
+    --box-shadow-primary-down: inset 0 100px 0 0 var(--primary-color);
+    --box-shadow-primary-right: inset 400px 0 0 0 var(--primary-color);
+    --box-shadow-primary-left: inset 0 0 0 50px var(--primary-color);
+    --box-shadow-primary-diagonal: inset 400px 50px 0 0 var(--primary-color);
+
+    --box-shadow-secondary-down: inset 0 100px 0 0 var(--secondary-color);
+    --box-shadow-secondary-right: inset 400px 0 0 0 var(--secondary-color);
+    --box-shadow-secondary-left: inset 0 0 0 50px var(--secondary-color);
+    --box-shadow-secondary-diagonal: inset 400px 50px 0 0 var(--secondary-color);
+}
+@media (min-width: 1920px) {
+    :root {
+        --size-xxxs: 0.3vw; /* 4px */
+        --size-xxs: 0.6vw; /* 8px */
+        --size-xs: 0.75vw; /* 10px */
+        --size-sm: 0.9vw; /* 12px */
+        --size-md: 1.05vw; /* 14px */
+        --size-base: 1.2vw; /* 16px */
+        --size-lg: 1.35vw; /* 18px */
+        --size-xl: 1.8vw; /* 24px */
+        --size-2xl: 2.1vw; /* 28px */
+        --size-3xl: 2.4vw; /* 32px */
+        --size-4xl: 3.6vw; /* 48px */
+        --size-5xl: 4.8vw; /* 64px */
+        --size-6xl: 6vw; /* 80px */
+        --size-7xl: 7.2vw; /* 96px */
+        --size-8xl: 8.4vw; /* 112px */
+        --size-9xl: 9.6vw; /* 128px */
+        --size-10xl: 10.8vw; /* 144px */
+        --size-11xl: 12vw; /* 160px */
+        --size-12xl: 13.2vw; /* 176px */
+        --size-13xl: 14.4vw; /* 192px */
+        --size-14xl: 15.6vw; /* 208px */
+        --size-15xl: 16.8vw; /* 224px */
+        --size-16xl: 18vw; /* 240px */
+
+        /* Outras propriedades ajustadas para escala */
+        --line-height-xs: 1.2;
+        --line-height-md: 1.7;
+        --line-height-lg: 2.2;
+        --box-shadow-hover: 1vw 1vw 5vw -1vw var(--color-white-transparency-2);
+
+        /* Dimensões gerais */
+        --container-width: 60vw;
+        --gap: 1.5vw;
+        --padding-base: 1.5vw;
+    }
+}
